@@ -107,13 +107,13 @@
             status.className = "form-status is-success";
             form.reset();
           } else {
-            var msg = (res.j && res.j.message) ? res.j.message : "Něco se nepovedlo. Zkuste to prosím znovu nebo napište na atelier@kymera.art.";
+            var msg = (res.j && res.j.message) ? res.j.message : "Něco se nepovedlo. Zkuste to prosím znovu nebo zavolejte na +420 734 548 884.";
             status.textContent = msg;
             status.className = "form-status is-error";
           }
         })
         .catch(function () {
-          status.textContent = "Spojení se nezdařilo. Napište prosím na atelier@kymera.art.";
+          status.textContent = "Spojení se nezdařilo. Zavolejte prosím na +420 734 548 884.";
           status.className = "form-status is-error";
         })
         .finally(function () {
