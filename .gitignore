@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+.vercel
+.env
+*.log
+
+# pracovní soubory
+assets/source/
+assets/img-transparent/
+process_photos.py
+preview-*.png
+
