@@ -67,6 +67,29 @@
     }
   }
 
+  // --- cookie banner (technický souhlas, 1 rok platnost)
+  var cookieBanner = document.getElementById("cookie-banner");
+  var cookieAccept = document.getElementById("cookie-accept");
+  function hasCookie(name) {
+    return document.cookie.split(";").some(function (c) {
+      return c.trim().indexOf(name + "=") === 0;
+    });
+  }
+  function setCookie(name, val, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = name + "=" + val + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
+  }
+  if (cookieBanner && cookieAccept) {
+    if (!hasCookie("kymera_cookies_ok")) {
+      cookieBanner.removeAttribute("hidden");
+    }
+    cookieAccept.addEventListener("click", function () {
+      setCookie("kymera_cookies_ok", "1", 365);
+      cookieBanner.setAttribute("hidden", "");
+    });
+  }
+
   // --- formulář (Web3Forms)
   var form = document.getElementById("contactForm");
   var submitBtn = document.getElementById("submitBtn");

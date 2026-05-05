@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie politika — KYMERA</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #15140f;
+      --surface: #1c1a13;
+      --text: #e8e4d8;
+      --text-muted: #a09880;
+      --brass: #b8925a;
+      --brass-light: #d4aa72;
+      --border: #2e2b20;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap');
+
+    /* Nav */
+    .legal-nav {
+      padding: 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .legal-nav a.home-link {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .legal-nav a.home-link:hover {
+      color: var(--brass-light);
+    }
+
+    .back-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--brass-light);
+      border-color: var(--brass-light);
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 20px 100px;
+      width: 100%;
+    }
+
+    .legal-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      border: 1px solid var(--brass);
+      padding: 4px 12px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .updated {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--brass-light);
+      margin-bottom: 14px;
+      margin-top: 48px;
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 1.4em;
+      margin-bottom: 14px;
+    }
+
+    li {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .status-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--brass);
+      padding: 22px 26px;
+      margin: 28px 0;
+    }
+
+    .status-box .status-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .status-box p {
+      margin-bottom: 0;
+      font-size: 0.92rem;
+    }
+
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px;
+      font-size: 0.88rem;
+    }
+
+    .cookie-table thead tr {
+      border-bottom: 1px solid var(--brass);
+    }
+
+    .cookie-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 500;
+      color: var(--brass-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .cookie-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    strong {
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: 8px;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: -6px;
+      margin-bottom: 14px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 20px;
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-brand {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .footer-contact {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-legal-links {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-legal-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .footer-legal-links a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-copy {
+      width: 100%;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+      padding-top: 16px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="legal-nav">
+    <a href="https://kymera.art" class="home-link">Kymera</a>
+    <a href="https://kymera.art" class="back-link">← Zpět na hlavní stránku</a>
+  </div>
+
+  <main>
+    <div class="legal-badge">Právní dokumenty</div>
+    <h1>Cookie politika</h1>
+    <p class="updated">Poslední aktualizace: 5. května 2026</p>
+
+    <section>
+      <div class="status-box">
+        <span class="status-title">Stručné shrnutí</span>
+        <p>Web kymera.art nepoužívá cookies pro sledování uživatelů. Neinstalujeme Google Analytics, Facebook Pixel ani žádný jiný marketingový nebo analytický tracking. Tato stránka je záměrně jednoduchá a respektuje vaše soukromí.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Co jsou cookies</h2>
+      <p>Cookies jsou malé textové soubory ukládané vaším prohlížečem při návštěvě webových stránek. Mohou sloužit k různým účelům — od technického fungování webu až po sledování vašeho chování napříč internetem. My k poslednímu jmenovanému nepřistupujeme.</p>
+    </section>
+
+    <section>
+      <h2>Jaké cookies kymera.art používá</h2>
+
+      <p>Web aktuálně nepokládá žádné vlastní cookies. Váš prohlížeč si může lokálně ukládat drobné technické informace (např. stav formuláře) v rámci standardního chování moderních prohlížečů — to není sledování a nevyžaduje váš souhlas.</p>
+
+      <table class="cookie-table">
+        <thead>
+          <tr>
+            <th>Kategorie</th>
+            <th>Stav</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Technické cookies (nezbytné)</td>
+            <td>Nepoužíváme</td>
+            <td>Web funguje bez nich</td>
+          </tr>
+          <tr>
+            <td>Analytické cookies</td>
+            <td>Nepoužíváme</td>
+            <td>Žádné Google Analytics ani alternativy</td>
+          </tr>
+          <tr>
+            <td>Marketingové / reklamní cookies</td>
+            <td>Nepoužíváme</td>
+            <td>Žádný Facebook Pixel, žádný remarketing</td>
+          </tr>
+          <tr>
+            <td>Personalizační cookies</td>
+            <td>Nepoužíváme</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Google Fonts — externí písma</h2>
+      <p>Web kymera.art načítá typografická písma (Inter, Instrument Serif) ze serverů Google Fonts. Při jejich načtení odesílá váš prohlížeč standardní HTTP požadavek na servery Google, který může obsahovat vaši IP adresu a informace o prohlížeči. Google tyto data může logovat na základě vlastních zásad ochrany soukromí.</p>
+      <p>Fonts jsou načítány pouze pro správné zobrazení typografie webu — nikoli pro sledování návštěvníků. Přesto jsme povinni vás o tomto informovat, neboť jde o přenos dat ke třetí straně v zahraničí.</p>
+      <div class="status-box">
+        <span class="status-title">Výhled</span>
+        <p>Jako dlouhodobé řešení plánujeme hostovat fonty přímo na serveru kymera.art, čímž jakýkoli kontakt s Google Fonts serverem zcela odpadne. Do té doby platí výše popsaný stav.</p>
+      </div>
+      <p>Zásady ochrany soukromí Google jsou dostupné na <a href="https://policies.google.com/privacy" style="color: var(--brass-light);">policies.google.com/privacy</a>.</p>
+    </section>
+
+    <section>
+      <h2>Co nedělá ani dělat nebude kymera.art</h2>
+      <ul>
+        <li>Nesleduje vaše pohyby po internetu</li>
+        <li>Nesdílí data o vás s reklamními sítěmi</li>
+        <li>Nespouští retargetingové kampaně na základě vaší návštěvy</li>
+        <li>Neměří chování na webu přes nástroje třetích stran</li>
+        <li>Nevyžaduje souhlas s cookies, protože žádné sledovací cookies nepoužívá</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Nastavení prohlížeče</h2>
+      <p>Správu cookies obecně ovládáte přímo v nastavení svého prohlížeče. Informace o správě cookies najdete v dokumentaci konkrétního prohlížeče. Protože kymera.art žádné sledovací cookies nepoužívá, není z naší strany nutné nabízet cookie lištu ani správce souhlasů.</p>
+    </section>
+
+    <section>
+      <h2>Dotazy</h2>
+      <p>Pokud máte otázky k tomuto dokumentu nebo k soukromí na webu kymera.art, napište nám na <a href="mailto:info@kymera.art" style="color: var(--brass-light);">info@kymera.art</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Kymera</div>
+      <div class="footer-contact">
+        Jakub Nowicki &nbsp;·&nbsp; Frýdecká 851, 739 61 Třinec<br>
+        <a href="mailto:info@kymera.art">info@kymera.art</a> &nbsp;·&nbsp;
+        <a href="tel:+420734548884">+420 734 548 884</a>
+      </div>
+      <div class="footer-legal-links">
+        <a href="gdpr.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="podminky.html">Obchodní podmínky</a>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 Jakub Nowicki. Všechna práva vyhrazena.</span>
+        <span>kymera.art</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

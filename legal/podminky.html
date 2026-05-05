@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obchodní podmínky — KYMERA</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #15140f;
+      --surface: #1c1a13;
+      --text: #e8e4d8;
+      --text-muted: #a09880;
+      --brass: #b8925a;
+      --brass-light: #d4aa72;
+      --border: #2e2b20;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap');
+
+    /* Nav */
+    .legal-nav {
+      padding: 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .legal-nav a.home-link {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .legal-nav a.home-link:hover {
+      color: var(--brass-light);
+    }
+
+    .back-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--brass-light);
+      border-color: var(--brass-light);
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 20px 100px;
+      width: 100%;
+    }
+
+    .legal-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      border: 1px solid var(--brass);
+      padding: 4px 12px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .updated {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--brass-light);
+      margin-bottom: 14px;
+      margin-top: 48px;
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    ul, ol {
+      padding-left: 1.4em;
+      margin-bottom: 14px;
+    }
+
+    li {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 7px;
+    }
+
+    .highlight-box {
+      background: var(--surface);
+      border-left: 2px solid var(--brass);
+      padding: 18px 22px;
+      margin: 22px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    .note-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+      margin: 18px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .note-box strong {
+      font-style: normal;
+    }
+
+    strong {
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: 8px;
+    }
+
+    .intro-lead {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 20px;
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-brand {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .footer-contact {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-legal-links {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-legal-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .footer-legal-links a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-copy {
+      width: 100%;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+      padding-top: 16px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="legal-nav">
+    <a href="https://kymera.art" class="home-link">Kymera</a>
+    <a href="https://kymera.art" class="back-link">← Zpět na hlavní stránku</a>
+  </div>
+
+  <main>
+    <div class="legal-badge">Právní dokumenty</div>
+    <h1>Obchodní podmínky</h1>
+    <p class="updated">Poslední aktualizace: 5. května 2026</p>
+
+    <p class="intro-lead">Každé dílo KYMERA vzniká jako originál — pro konkrétního člověka, na konkrétní místo. Tyto podmínky vymezují pravidla spolupráce tak, aby byl celý proces pro obě strany srozumitelný a důvěryhodný.</p>
+
+    <section>
+      <h2>1. Provozovatel a prodávající</h2>
+      <p>Tyto obchodní podmínky upravují vztah mezi:</p>
+      <div class="highlight-box">
+        <p><strong>Jakub Nowicki</strong> (dále jen „autor" nebo „prodávající")<br>
+        Frýdecká 851, 739 61 Třinec, Česká republika<br>
+        Tel.: <a href="tel:+420734548884" style="color: var(--brass-light);">+420 734 548 884</a><br>
+        E-mail: <a href="mailto:info@kymera.art" style="color: var(--brass-light);">info@kymera.art</a><br>
+        Web: <a href="https://kymera.art" style="color: var(--brass-light);">kymera.art</a></p>
+      </div>
+      <p>…a kupujícím — fyzickou nebo právnickou osobou, která projeví zájem o zakoupení uměleckého díla (dále jen „kupující" nebo „sběratel").</p>
+      <p>Tyto podmínky se řídí právem České republiky, zejm. zákonem č. 89/2012 Sb., občanský zákoník (dále jen „OZ"), a zákonem č. 634/1992 Sb., o ochraně spotřebitele, je-li kupující spotřebitelem ve smyslu § 419 OZ.</p>
+    </section>
+
+    <section>
+      <h2>2. Předmět prodeje</h2>
+      <p>Předmětem těchto podmínek je prodej originálních uměleckých soch a objektů autorství Jakuba Nowického, vytvořených ze dřeva s implantovanou mechanikou (dále jen „dílo" nebo „socha"). Každé dílo je:</p>
+      <ul>
+        <li>originálním výtvorem — neexistuje v žádné kopii ani replice</li>
+        <li>opatřeno unikátním číslem a certifikátem pravosti</li>
+        <li>dokumentováno fotograficky před expedicí</li>
+      </ul>
+      <p>KYMERA nevyrábí limitované edice, sériové reprodukce ani autorské tisky — veškerá nabídka tvoří výhradně originální díla.</p>
+    </section>
+
+    <section>
+      <h2>3. Cena</h2>
+      <p>Ceny děl nejsou standardně uvedeny na webu. Každé dílo je oceněno individuálně s ohledem na rozměr, materiál, náročnost mechaniky a aktuální dostupnost. Orientační cena začíná od <strong>60 000 Kč</strong>.</p>
+      <p>Konkrétní cenová nabídka je zasílána na vyžádání po osobní nebo e-mailové konzultaci. Cena je platná po dobu uvedenou v nabídce, minimálně však 14 dní od jejího doručení.</p>
+      <p>Autor je plátcem DPH / není plátcem DPH — aktuální status je uveden na příslušném daňovém dokladu. Všechny ceny jsou konečné a zahrnují případnou DPH v zákonné výši.</p>
+    </section>
+
+    <section>
+      <h2>4. Objednávka a uzavření smlouvy</h2>
+      <p>Zájem o dílo lze projevit prostřednictvím:</p>
+      <ul>
+        <li>kontaktního formuláře na kymera.art</li>
+        <li>e-mailem na <a href="mailto:info@kymera.art" style="color: var(--brass-light);">info@kymera.art</a></li>
+        <li>telefonicky nebo osobně po předchozí domluvě</li>
+      </ul>
+      <p>Projevení zájmu o dílo <strong>není závaznou objednávkou</strong>. Smlouva o koupi díla je uzavřena teprve tehdy, když obě strany odsouhlasí:</p>
+      <ol>
+        <li>konkrétní dílo (nebo zadání zakázkového díla)</li>
+        <li>celkovou cenu včetně způsobu dopravy</li>
+        <li>termín dodání</li>
+        <li>zálohu a podmínky platby</li>
+      </ol>
+      <p>Potvrzení smlouvy je zasláno e-mailem a autor potvrdí přijetí objednávky zpravidla do 3 pracovních dnů.</p>
+    </section>
+
+    <section>
+      <h2>5. Platební podmínky a záloha</h2>
+      <p>Po uzavření smlouvy je splatná záloha ve výši <strong>30–50 % z celkové ceny díla</strong>, a to zpravidla do 7 dnů od uzavření smlouvy. Konkrétní výše zálohy závisí na charakteru díla a je dojednána individuálně.</p>
+      <p>Zbývající část kupní ceny (<strong>doplatek</strong>) je splatná před expedicí díla, nejpozději v den předání. Doplatek potvrzuje připravenost sběratele dílo převzít.</p>
+      <p>Platba probíhá bankovním převodem na účet autora. Při osobním převzetí je možná i platba v hotovosti do zákonného limitu.</p>
+      <div class="note-box">
+        <strong>Poznámka:</strong> Záloha slouží mimo jiné k pokrytí nákladů na materiál a počáteční výrobu. V případě zrušení objednávky ze strany kupujícího po zahájení výroby může být záloha nebo její část nevratná — viz článek 10 (Odstoupení od smlouvy).
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Lhůta výroby a dodání</h2>
+      <p>Každé dílo je vyráběno s plným soustředěním a péčí odpovídající jeho charakteru. Standardní lhůta výroby je <strong>4 až 12 týdnů</strong> od uhrazení zálohy, v závislosti na:</p>
+      <ul>
+        <li>složitosti mechaniky a zpracování</li>
+        <li>rozměru a hmotnosti díla</li>
+        <li>aktuálním pořadí zakázek v ateliéru</li>
+      </ul>
+      <p>Přesný termín je vždy uveden v potvrzení objednávky. Autor průběžně informuje sběratele o stavu výroby a případných změnách termínu bez zbytečného odkladu.</p>
+    </section>
+
+    <section>
+      <h2>7. Doprava a předání díla</h2>
+      <p><strong>Česká republika:</strong> Dílo doručuje autor osobně vlastním vozem. Doprava v rámci ČR je zahrnuta v ceně díla. Autor dohodne konkrétní termín a místo předání se sběratelem individuálně. Osobní předání umožňuje také instruktáž k péči o dílo a mechaniku na místě.</p>
+      <p><strong>Zahraničí:</strong> Při dodání mimo ČR zajišťuje autor dopravu prostřednictvím specializované umělecké nebo kurýrní spedice. Náklady na mezinárodní dopravu, pojištění a případné celní poplatky jsou předmětem individuální dohody a nejsou zahrnuty v ceně díla.</p>
+      <p>Dílo je před expedicí baleno způsobem odpovídajícím jeho hodnotě a křehkosti. Kupující nese nebezpečí škody na díle od okamžiku jeho převzetí.</p>
+    </section>
+
+    <section>
+      <h2>8. Originalita a certifikát pravosti</h2>
+      <p>Každá socha KYMERA je opatřena:</p>
+      <ul>
+        <li><strong>Unikátním identifikačním číslem</strong> diskrétně umístěným na díle</li>
+        <li><strong>Certifikátem pravosti</strong> podepsaným autorem, s popisem díla, datem vzniku a číslem kusu</li>
+        <li><strong>Fotografickou dokumentací</strong> zachycující finální stav díla před expedicí</li>
+      </ul>
+      <p>Certifikát je nedílnou součástí dodávky. Ztráta certifikátu nezpochybňuje vlastnictví díla, ale komplikuje případné budoucí ověření pravosti. V případě ztráty certifikátu může autor na vyžádání vydat duplikát.</p>
+    </section>
+
+    <section>
+      <h2>9. Autorská práva</h2>
+      <p>Zakoupením díla přechází na sběratele <strong>vlastnictví fyzického objektu</strong>. Veškerá autorská práva k dílu — včetně práva dílo reprodukovat, vystavovat, šířit nebo z něj odvozovat nová díla — zůstávají výhradně autorovi ve smyslu zákona č. 121/2000 Sb. (autorský zákon).</p>
+      <p>Sběratel je oprávněn:</p>
+      <ul>
+        <li>dílo vlastnit, vystavovat v soukromém nebo veřejném prostoru</li>
+        <li>dílo fotografovat pro osobní dokumentaci</li>
+        <li>dílo dále prodat jako fyzický objekt (přičemž se tato omezení přenáší na nového vlastníka)</li>
+      </ul>
+      <p>Sběratel není bez výslovného písemného souhlasu autora oprávněn:</p>
+      <ul>
+        <li>dílo reprodukovat, odlévat, 3D skenovat nebo jinak kopírovat</li>
+        <li>zveřejňovat fotografie díla pro komerční účely</li>
+        <li>dílo upravovat nebo začleňovat do jiných děl</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>10. Odstoupení od smlouvy</h2>
+      <p>Je-li kupující <strong>spotřebitel</strong> a smlouva byla uzavřena na dálku (bez fyzické přítomnosti obou stran), má právo od smlouvy odstoupit bez udání důvodu do <strong>14 dnů</strong> od převzetí díla (§ 1829 OZ).</p>
+      <div class="note-box">
+        <strong>Důležitá výjimka:</strong> Právo na odstoupení od smlouvy ve lhůtě 14 dnů se nevztahuje na díla vyrobená na zakázku podle specifikací spotřebitele nebo zjevně přizpůsobená konkrétní osobě (§ 1837 písm. d) OZ). Tato výjimka se vztahuje na velkou část zakázek KYMERA — konkrétní uplatnění výjimky je vždy uvedeno v potvrzení objednávky.
+      </div>
+      <p>Odstoupení od smlouvy ze strany kupujícího — mimo zákonná práva — podléhá těmto pravidlům:</p>
+      <ul>
+        <li>Před zahájením výroby: autor vrátí zálohu v plné výši do 14 dnů.</li>
+        <li>Po zahájení výroby, ale před dokončením: autor může zúčtovat prokazatelně vynaložené náklady. Zbývající část zálohy bude vrácena.</li>
+        <li>Po dokončení díla: záloha se nevrací. Smluvní strany mohou dohodnou jiné řešení (např. přeprodej díla třetí osobě).</li>
+      </ul>
+      <p>Autor si vyhrazuje právo odstoupit od smlouvy, dojde-li k nepředvídatelné ztrátě nebo zničení materiálu, zdravotní neschopnosti nebo jiné situaci vis maior. V takovém případě vrátí zálohu v plné výši.</p>
+    </section>
+
+    <section>
+      <h2>11. Reklamace a záruka</h2>
+      <p>Autor ručí za to, že dílo:</p>
+      <ul>
+        <li>odpovídá popisu a dokumentaci uvedené v objednávce</li>
+        <li>je provedeno s odbornou péčí a použitím kvalitních materiálů</li>
+        <li>mechanické části jsou funkční v okamžiku předání</li>
+        <li>nejeví skryté vady, o nichž autor věděl nebo vědět měl</li>
+      </ul>
+      <p>Na dílo se vztahuje zákonná záruční lhůta dle OZ. Reklamaci uplatňuje sběratel písemně na <a href="mailto:info@kymera.art" style="color: var(--brass-light);">info@kymera.art</a> nebo na adrese autora s popisem vady a fotodokumentací.</p>
+      <p>Reklamace se nevztahuje na:</p>
+      <ul>
+        <li>přirozené změny materiálu (dřevo může pracovat v závislosti na vlhkosti a teplotě)</li>
+        <li>poškození vzniklá nevhodnou manipulací, úpravami nebo nedodržením pokynů k péči</li>
+        <li>estetické odchylky, které jsou přirozenou vlastností ručně vyráběného originálu</li>
+      </ul>
+      <p>Ke každému dílu jsou přiloženy pokyny pro péči. Jejich dodržení přispívá k dlouhověkosti díla a je podmínkou platnosti záruky u reklamace mechanických částí.</p>
+    </section>
+
+    <section>
+      <h2>12. Mimosoudní řešení sporů</h2>
+      <p>Je-li kupující spotřebitelem a vznikne-li spor z kupní smlouvy, který se nepodaří vyřešit dohodou, má spotřebitel právo obrátit se na mimosoudní řešení sporů k <strong>České obchodní inspekci</strong> (<a href="https://www.coi.cz" style="color: var(--brass-light);">coi.cz</a>). Online platforma pro řešení sporů EU je dostupná na <a href="https://ec.europa.eu/consumers/odr" style="color: var(--brass-light);">ec.europa.eu/consumers/odr</a>.</p>
+    </section>
+
+    <section>
+      <h2>13. Závěrečná ustanovení</h2>
+      <p>Tyto obchodní podmínky jsou platné a účinné od 5. května 2026. Autor si vyhrazuje právo podmínky aktualizovat; aktuální verze je vždy dostupná na kymera.art/legal/podminky.html. Pro smlouvy uzavřené před datem aktualizace platí podmínky účinné v době uzavření smlouvy.</p>
+      <p>Případné dotazy k obchodním podmínkám zodpoví autor na <a href="mailto:info@kymera.art" style="color: var(--brass-light);">info@kymera.art</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Kymera</div>
+      <div class="footer-contact">
+        Jakub Nowicki &nbsp;·&nbsp; Frýdecká 851, 739 61 Třinec<br>
+        <a href="mailto:info@kymera.art">info@kymera.art</a> &nbsp;·&nbsp;
+        <a href="tel:+420734548884">+420 734 548 884</a>
+      </div>
+      <div class="footer-legal-links">
+        <a href="gdpr.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="podminky.html">Obchodní podmínky</a>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 Jakub Nowicki. Všechna práva vyhrazena.</span>
+        <span>kymera.art</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

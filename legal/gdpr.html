@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zásady zpracování osobních údajů — KYMERA</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #15140f;
+      --surface: #1c1a13;
+      --text: #e8e4d8;
+      --text-muted: #a09880;
+      --brass: #b8925a;
+      --brass-light: #d4aa72;
+      --border: #2e2b20;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap');
+
+    /* Nav */
+    .legal-nav {
+      padding: 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .legal-nav a.home-link {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .legal-nav a.home-link:hover {
+      color: var(--brass-light);
+    }
+
+    .back-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--brass-light);
+      border-color: var(--brass-light);
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 20px 100px;
+      width: 100%;
+    }
+
+    .legal-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      border: 1px solid var(--brass);
+      padding: 4px 12px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .updated {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--brass-light);
+      margin-bottom: 14px;
+      margin-top: 48px;
+      letter-spacing: 0.03em;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    ul, ol {
+      padding-left: 1.4em;
+      margin-bottom: 14px;
+    }
+
+    li {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .highlight-box {
+      background: var(--surface);
+      border-left: 2px solid var(--brass);
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    strong {
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 20px;
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-brand {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .footer-contact {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-legal-links {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-legal-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .footer-legal-links a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-copy {
+      width: 100%;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+      padding-top: 16px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="legal-nav">
+    <a href="https://kymera.art" class="home-link">Kymera</a>
+    <a href="https://kymera.art" class="back-link">← Zpět na hlavní stránku</a>
+  </div>
+
+  <main>
+    <div class="legal-badge">Právní dokumenty</div>
+    <h1>Zásady zpracování<br>osobních údajů</h1>
+    <p class="updated">Poslední aktualizace: 5. května 2026</p>
+
+    <section>
+      <h2>1. Správce osobních údajů</h2>
+      <p>Správcem vašich osobních údajů je:</p>
+      <div class="highlight-box">
+        <p><strong>Jakub Nowicki</strong><br>
+        Frýdecká 851, 739 61 Třinec<br>
+        Česká republika<br>
+        Tel.: <a href="tel:+420734548884">+420 734 548 884</a><br>
+        E-mail: <a href="mailto:info@kymera.art">info@kymera.art</a><br>
+        Web: <a href="https://kymera.art">kymera.art</a></p>
+      </div>
+      <p>Tato stránka vás informuje o tom, jaké osobní údaje zpracováváme, proč a jaká máte práva. Zpracování probíhá v souladu s Nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 110/2019 Sb., o zpracování osobních údajů.</p>
+    </section>
+
+    <section>
+      <h2>2. Jaké údaje zpracováváme</h2>
+      <p>Zpracováváme výhradně údaje, které nám sami poskytnete prostřednictvím kontaktního formuláře na webu kymera.art. Konkrétně se jedná o:</p>
+      <ul>
+        <li><strong>Jméno a příjmení</strong> — abychom věděli, jak vás oslovit</li>
+        <li><strong>E-mailová adresa</strong> — pro zaslání odpovědi na vaši poptávku</li>
+        <li><strong>Telefonní číslo</strong> — pokud jej dobrovolně uvedete, pro případnou přímou komunikaci</li>
+        <li><strong>Text zprávy</strong> — obsah vaší poptávky nebo dotazu</li>
+      </ul>
+      <p>Neprovádíme automatické profilování, nesbíráme marketingová data, nepoužíváme sledovací technologie a nezpracováváme žádné citlivé osobní údaje.</p>
+    </section>
+
+    <section>
+      <h2>3. Účel a právní základ zpracování</h2>
+      <p>Vaše osobní údaje zpracováváme za jediným účelem: <strong>vyřízení vaší poptávky nebo dotazu</strong> a navazující obchodní komunikace.</p>
+      <p>Právní základ zpracování je dvojí:</p>
+      <ul>
+        <li><strong>Oprávněný zájem správce</strong> (čl. 6 odst. 1 písm. f) GDPR) — odpověď na poptávku je zájmem jak vaším, tak správce. Oprávněný zájem nepřevažuje nad vašimi základními právy a svobodami.</li>
+        <li><strong>Souhlas subjektu údajů</strong> (čl. 6 odst. 1 písm. a) GDPR) — pokud nás kontaktujete s vědomím, že vaše údaje budou použity pro komunikaci o díle, a výslovně souhlasíte se zpracováním při odeslání formuláře.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Doba uchovávání</h2>
+      <p>Vaše údaje uchováváme po dobu nezbytně nutnou k vyřízení poptávky a případnému uzavření smlouvy — zpravidla <strong>12 měsíců</strong> od posledního kontaktu. Pokud dojde k uzavření smlouvy o koupi díla, archivujeme smluvní dokumentaci po dobu stanovenou obecnými předpisy (zejm. zákon č. 89/2012 Sb., občanský zákoník, a daňové předpisy) — typicky <strong>5 let</strong> od splnění závazku.</p>
+      <p>Po uplynutí příslušné doby jsou vaše údaje trvale vymazány.</p>
+    </section>
+
+    <section>
+      <h2>5. Předávání třetím stranám</h2>
+      <p>Vaše údaje neprodáváme, nepronajímáme ani nesdílíme s třetími stranami za účelem marketingu. Jediný případ předání nastává při technickém doručení zprávy z formuláře:</p>
+      <div class="highlight-box">
+        <p><strong>Web3Forms</strong> (web3forms.com) — slouží výhradně k přeposlání obsahu kontaktního formuláře na e-mail správce. Web3Forms zpracovává přeposílaná data jako zpracovatel ve smyslu GDPR. Data přes jejich servery projdou, nejsou u nich trvale ukládána pro marketingové účely. Více informací na <a href="https://web3forms.com/privacy" style="color: var(--brass-light);">web3forms.com/privacy</a>.</p>
+      </div>
+      <p>Jiní zpracovatelé ani příjemci vašich osobních údajů neexistují. Data nepředáváme do třetích zemí mimo EHP.</p>
+    </section>
+
+    <section>
+      <h2>6. Vaše práva</h2>
+      <p>Jako subjekt údajů máte ve vztahu k vašim osobním údajům tato práva:</p>
+      <ul>
+        <li><strong>Právo na přístup</strong> — kdykoli si můžete vyžádat potvrzení, zda zpracováváme vaše údaje, a jejich kopii.</li>
+        <li><strong>Právo na opravu</strong> — pokud jsou vaše údaje nepřesné nebo neúplné, opravíme je.</li>
+        <li><strong>Právo na výmaz</strong> — v zákonem stanovených případech máte právo požádat o smazání svých údajů.</li>
+        <li><strong>Právo na omezení zpracování</strong> — za určitých okolností můžete požádat, abychom vaše data zpracovávali pouze omezeně.</li>
+        <li><strong>Právo na přenositelnost</strong> — zpracováváme-li vaše data automatizovaně na základě souhlasu nebo smlouvy, máte právo na jejich strojově čitelný výstup.</li>
+        <li><strong>Právo vznést námitku</strong> — pokud zpracování stojí na oprávněném zájmu, můžete kdykoli vznést námitku; zpracování ukončíme, pokud neprokážeme závažné důvody.</li>
+        <li><strong>Právo odvolat souhlas</strong> — souhlas se zpracováním může být kdykoli odvolán bez dopadu na zákonnost zpracování před odvoláním.</li>
+      </ul>
+      <p>Svá práva uplatňujte na adrese <a href="mailto:info@kymera.art" style="color: var(--brass-light);">info@kymera.art</a> nebo písemně na adrese správce. Odpovíme do 30 dnů.</p>
+      <p>Máte také právo podat stížnost u dozorového orgánu — <strong>Úřadu pro ochranu osobních údajů</strong> (<a href="https://www.uoou.cz" style="color: var(--brass-light);">uoou.cz</a>), Pplk. Sochora 27, 170 00 Praha 7.</p>
+    </section>
+
+    <section>
+      <h2>7. Zabezpečení</h2>
+      <p>Veškerá komunikace s webem probíhá šifrovaně přes HTTPS. Osobní údaje ukládáme pouze v e-mailové korespondenci, ke které má přístup výhradně správce. Přijímáme přiměřená technická a organizační opatření odpovídající charakteru zpracování a riziku pro vaše práva.</p>
+    </section>
+
+    <section>
+      <h2>8. Kontakt</h2>
+      <p>S jakýmkoli dotazem týkajícím se zpracování vašich osobních údajů se obracejte přímo na správce:</p>
+      <p>
+        Jakub Nowicki<br>
+        <a href="mailto:info@kymera.art" style="color: var(--brass-light);">info@kymera.art</a><br>
+        <a href="tel:+420734548884" style="color: var(--brass-light);">+420 734 548 884</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Kymera</div>
+      <div class="footer-contact">
+        Jakub Nowicki &nbsp;·&nbsp; Frýdecká 851, 739 61 Třinec<br>
+        <a href="mailto:info@kymera.art">info@kymera.art</a> &nbsp;·&nbsp;
+        <a href="tel:+420734548884">+420 734 548 884</a>
+      </div>
+      <div class="footer-legal-links">
+        <a href="gdpr.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="podminky.html">Obchodní podmínky</a>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 Jakub Nowicki. Všechna práva vyhrazena.</span>
+        <span>kymera.art</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
