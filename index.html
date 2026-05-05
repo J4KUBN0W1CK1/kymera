@@ -35,6 +35,7 @@
       <nav class="primary-nav" aria-label="Hlavní navigace">
         <a href="#kolekce">Kolekce</a>
         <a href="#vybrana">Vybraná díla</a>
+        <a href="#galerie">Galerie</a>
         <a href="#o-znacce">O značce</a>
         <a href="#pro-architekty">Pro architekty</a>
         <a href="#kontakt">Kontakt</a>
@@ -58,6 +59,7 @@
     <div class="mobile-nav" id="mobile-nav" hidden>
       <a href="#kolekce">Kolekce</a>
       <a href="#vybrana">Vybraná díla</a>
+      <a href="#galerie">Galerie</a>
       <a href="#o-znacce">O značce</a>
       <a href="#pro-architekty">Pro architekty</a>
       <a href="#kontakt">Kontakt</a>
@@ -233,6 +235,43 @@
         </p>
       </div>
     </section>
+
+    <!-- ================= GALERIE ================= -->
+    <section id="galerie" class="section section-gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <header class="section-head center">
+          <p class="eyebrow">Galerie děl</p>
+          <h2 id="gallery-title">Sochy <em>z ateliéru</em>.</h2>
+          <p class="section-lede">
+            Reflexe řemesla, materiálu a detailu. Klikni pro zvětšení.
+          </p>
+        </header>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <button class="gallery-item" data-idx="0" aria-label="Otevřít detail díla 1"><img src="assets/galerie/IMG_5101.jpg" alt="Socha KYMERA — detail 1" loading="lazy"/></button>
+          <button class="gallery-item" data-idx="1" aria-label="Otevřít detail díla 2"><img src="assets/galerie/IMG_5102.jpg" alt="Socha KYMERA — detail 2" loading="lazy"/></button>
+          <button class="gallery-item" data-idx="2" aria-label="Otevřít detail díla 3"><img src="assets/galerie/IMG_5104.jpg" alt="Socha KYMERA — detail 3" loading="lazy"/></button>
+          <button class="gallery-item" data-idx="3" aria-label="Otevřít detail díla 4"><img src="assets/galerie/IMG_5106.jpg" alt="Socha KYMERA — detail 4" loading="lazy"/></button>
+          <button class="gallery-item" data-idx="4" aria-label="Otevřít detail díla 5"><img src="assets/galerie/IMG_5107.jpg" alt="Socha KYMERA — detail 5" loading="lazy"/></button>
+          <button class="gallery-item" data-idx="5" aria-label="Otevřít detail díla 6"><img src="assets/galerie/IMG_5108.jpg" alt="Socha KYMERA — detail 6" loading="lazy"/></button>
+          <button class="gallery-item" data-idx="6" aria-label="Otevřít detail díla 7"><img src="assets/galerie/IMG_5114.jpg" alt="Socha KYMERA — detail 7" loading="lazy"/></button>
+          <button class="gallery-item" data-idx="7" aria-label="Otevřít detail díla 8"><img src="assets/galerie/IMG_5115.jpg" alt="Socha KYMERA — detail 8" loading="lazy"/></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LIGHTBOX ================= -->
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Detail díla">
+      <button class="lightbox-close" id="lb-close" aria-label="Zavřít">×</button>
+      <button class="lightbox-prev" id="lb-prev" aria-label="Předchozí">‹</button>
+      <button class="lightbox-next" id="lb-next" aria-label="Další">›</button>
+      <div class="lightbox-stage" id="lb-stage">
+        <img id="lb-img" src="" alt=""/>
+      </div>
+      <div class="lightbox-meta" id="lb-meta">
+        <span id="lb-counter">1 / 8</span>
+      </div>
+    </div>
 
     <!-- ================= O ZNAČCE ================= -->
     <section id="o-znacce" class="section section-about">

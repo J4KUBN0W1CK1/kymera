@@ -146,3 +146,72 @@
     });
   }
 })();
+
+/* ============== LIGHTBOX (galerie) ============== */
+(function(){
+  var grid = document.getElementById('gallery-grid');
+  var lb = document.getElementById('lightbox');
+  if (!grid || !lb) return;
+
+  var img = document.getElementById('lb-img');
+  var counter = document.getElementById('lb-counter');
+  var btnClose = document.getElementById('lb-close');
+  var btnPrev = document.getElementById('lb-prev');
+  var btnNext = document.getElementById('lb-next');
+  var items = Array.prototype.slice.call(grid.querySelectorAll('.gallery-item'));
+  var current = 0;
+
+  function srcOf(idx){
+    return items[idx].querySelector('img').getAttribute('src');
+  }
+  function altOf(idx){
+    return items[idx].querySelector('img').getAttribute('alt') || '';
+  }
+  function show(idx){
+    current = (idx + items.length) % items.length;
+    img.src = srcOf(current);
+    img.alt = altOf(current);
+    counter.textContent = (current+1) + ' / ' + items.length;
+  }
+  function open(idx){
+    show(idx);
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+  function close(){
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    img.src = '';
+  }
+
+  items.forEach(function(it, i){
+    it.addEventListener('click', function(){ open(i); });
+  });
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', function(){ show(current - 1); });
+  btnNext.addEventListener('click', function(){ show(current + 1); });
+
+  // klávesnice
+  document.addEventListener('keydown', function(e){
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(current - 1);
+    else if (e.key === 'ArrowRight') show(current + 1);
+  });
+
+  // klik mimo obrázek = zavřít
+  lb.addEventListener('click', function(e){
+    if (e.target === lb) close();
+  });
+
+  // swipe na mobilu
+  var touchX = null;
+  lb.addEventListener('touchstart', function(e){ touchX = e.touches[0].clientX; });
+  lb.addEventListener('touchend', function(e){
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+    touchX = null;
+  });
+})();
