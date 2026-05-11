@@ -159,6 +159,7 @@
   var btnPrev = document.getElementById('lb-prev');
   var btnNext = document.getElementById('lb-next');
   var items = Array.prototype.slice.call(grid.querySelectorAll('.gallery-item'));
+  var triggers = items.map(function(it){ return it.querySelector('button') || it; });
   var current = 0;
 
   function srcOf(idx){
@@ -185,8 +186,8 @@
     img.src = '';
   }
 
-  items.forEach(function(it, i){
-    it.addEventListener('click', function(){ open(i); });
+  triggers.forEach(function(btn, i){
+    btn.addEventListener('click', function(){ open(i); });
   });
   btnClose.addEventListener('click', close);
   btnPrev.addEventListener('click', function(){ show(current - 1); });

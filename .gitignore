@@ -1,8 +1,4 @@
+qa/
 __pycache__/
 *.pyc
-preview-*.png
-preview-*.jpg
-photos/
-assets/source-real/
-assets/transparent/
-print/fonts/
+.DS_Store
