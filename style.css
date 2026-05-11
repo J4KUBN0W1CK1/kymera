@@ -615,7 +615,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
   .works-grid{ grid-template-columns:repeat(2, 1fr); gap:56px 40px; }
   .works-grid .work:nth-child(3){ grid-column: span 2; max-width:520px; margin:0 auto; }
   .gallery-grid{ grid-template-columns:repeat(2, 1fr); gap:40px; }
-  .gallery-grid .gallery-item:nth-child(3){ grid-column: span 2; max-width:520px; margin:0 auto; }
+  /* 12-item gallery: no special span on 3rd child */
   .brief-grid{ grid-template-columns:repeat(2, 1fr); gap:28px; }
   .split{ grid-template-columns:1fr; gap:56px; }
 }
