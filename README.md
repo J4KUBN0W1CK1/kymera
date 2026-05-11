@@ -27,7 +27,7 @@ kymera/
 
 1. **Fotky** do `assets/img/` (názvy přesně jak nahoře). Pokud fotku nedoplníš, web má stylový fallback a nerozsype se.
 2. **Web3Forms access key** v `index.html` – řádek `<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />`. Klíč si vygeneruj na [web3forms.com](https://web3forms.com).
-3. **E-mail** v `index.html` (sekce kontakt + footer): aktuálně `atelier@kymera.art`.
+3. **E-mail** v `index.html` (sekce kontakt + footer): aktuálně `atelier@kymera-art.com`.
 
 ## Jazykové mutace (CZ / EN / PL)
 

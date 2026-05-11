@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kymera.art/sitemap.xml
+Sitemap: https://kymera-art.com/sitemap.xml
