@@ -57,7 +57,9 @@
           }
         });
       }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
-      revealEls.forEach(function (el) { io.observe(el); });
+      requestAnimationFrame(function () {
+        revealEls.forEach(function (el) { io.observe(el); });
+      });
 
       // fail-safe: po 2,5 s ukázat vše tak jako tak (printscreen, headless prohlížeče,
       // velmi pomalý scroll, native lazy-render apod.)
