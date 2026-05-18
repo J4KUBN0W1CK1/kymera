@@ -1,4 +1,30 @@
-qa/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Working / development files
+qa/
+photos/
+preview-*.png
+preview-*.jpg
+download_urls.txt
+photo_inventory.md
+*.tmp.jpg
+*.tmp
+
+# Source / raw assets (zpracované verze žijí v assets/img a assets/galerie)
+assets/source/
+assets/source-real/
+assets/img-transparent/
+
+# Print materials (žijí v kymera_print/ mimo repo)
+print/
+
+# Processing scripts (jednorázové)
+process_*.py
+refine_*.py
