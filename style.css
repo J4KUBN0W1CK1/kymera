@@ -247,7 +247,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
   from{ transform:scale(1.00); }
   to  { transform:scale(1.00); }
 }
-.hero-inner{ position:relative; z-index:2; max-width:980px; }
+.hero-inner{ position:relative; z-index:2; max-width:500px; }
 .hero-title{
   font-family:var(--serif);
   font-size:clamp(48px, 8vw, 128px);
