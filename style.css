@@ -230,7 +230,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
 }
 .hero-figure{
   position:absolute;
-  right:0;
+  right:4%;
   top:0;
   bottom:0;
   width:auto;
@@ -247,7 +247,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
   from{ transform:scale(1.00); }
   to  { transform:scale(1.00); }
 }
-.hero-inner{ position:relative; z-index:2; max-width:800px; margin-left:0; margin-right:auto; }
+.hero-inner{ position:relative; z-index:2; max-width:800px; margin-left:clamp(16px, 5vw, 80px); margin-right:auto; }
 .hero-title{
   font-family:var(--serif);
   font-size:clamp(48px, 8vw, 128px);
