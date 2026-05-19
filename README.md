@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/img/about.webp" height="360" alt="KYMERA — Originální industriální umění"/>
+<img src="assets/img/preview.webp" width="100%" alt="KYMERA — kymera-art.com"/>
 
 <br><br>
 
