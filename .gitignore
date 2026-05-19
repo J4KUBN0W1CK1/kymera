@@ -2,3 +2,11 @@ qa/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Source a pracovní soubory — nepatří do deploymentu
+photos/
+assets/source/
+assets/source-real/
+assets/img-transparent/
+print/
+*.bak

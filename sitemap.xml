@@ -4,25 +4,25 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://kymera-art.com/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="cs" href="https://kymera-art.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kymera-art.com/"/>
     <image:image>
-      <image:loc>https://kymera-art.com/assets/img/hero.jpg</image:loc>
+      <image:loc>https://kymera-art.com/assets/img/hero.webp</image:loc>
       <image:title>KYMERA — Tichá síla v lidské formě</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://kymera-art.com/assets/img/work-01.jpg</image:loc>
+      <image:loc>https://kymera-art.com/assets/img/work-01.webp</image:loc>
       <image:title>Vestální I. — bust s mosaznou mechanikou</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://kymera-art.com/assets/img/work-02.jpg</image:loc>
+      <image:loc>https://kymera-art.com/assets/img/work-02.webp</image:loc>
       <image:title>Anatomia Bronzê — vertikální figura</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://kymera-art.com/assets/img/work-03.jpg</image:loc>
+      <image:loc>https://kymera-art.com/assets/img/work-03.webp</image:loc>
       <image:title>Membrana — celá figura s odhaleným soukolím</image:title>
     </image:image>
   </url>
