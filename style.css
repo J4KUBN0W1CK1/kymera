@@ -21,7 +21,7 @@
   /* layout */
   --container: 1240px;
   --gutter: clamp(24px, 5vw, 64px);
-  --section-y: clamp(96px, 13vw, 200px);   /* výrazně vzdušnější jako starlink */
+  --section-y: clamp(64px, 8vw, 120px);
   --radius: 2px;
 
   /* motion */
@@ -55,7 +55,7 @@ input,select,textarea{ font:inherit; color:inherit; }
   margin:0 auto;
   padding:0 var(--gutter);
 }
-.container.narrow{ max-width:880px; }
+.container.narrow{ max-width:1060px; }
 .section{ padding:var(--section-y) 0; position:relative; }
 .section + .section{ border-top:1px solid var(--line); }
 
@@ -286,7 +286,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
 }
 
 /* ---------- STATEMENT ---------- */
-.section-statement{ text-align:center; padding:clamp(120px, 16vw, 240px) 0; }
+.section-statement{ text-align:center; padding:clamp(60px, 7vw, 100px) 0; }
 .statement{
   font-size:clamp(30px, 4vw, 58px);
   line-height:1.2;
