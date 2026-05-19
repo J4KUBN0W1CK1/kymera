@@ -1,8 +1,29 @@
-# KYMERA — kymera-art.com
+<div align="center">
 
-> Originální industriální umělecká díla. Statický web bez frameworku, bez build kroku.
+<br>
 
-**Stack:** HTML · CSS · Vanilla JS · Vercel · GitHub
+```
+  ██╗  ██╗██╗   ██╗███╗   ███╗███████╗██████╗  █████╗
+  ██║ ██╔╝╚██╗ ██╔╝████╗ ████║██╔════╝██╔══██╗██╔══██╗
+  █████╔╝  ╚████╔╝ ██╔████╔██║█████╗  ██████╔╝███████║
+  ██╔═██╗   ╚██╔╝  ██║╚██╔╝██║██╔══╝  ██╔══██╗██╔══██║
+  ██║  ██╗   ██║   ██║ ╚═╝ ██║███████╗██║  ██║██║  ██║
+  ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
+```
+
+**Originální industriální umělecká díla**
+
+<br>
+
+[![Live](https://img.shields.io/badge/live-kymera--art.com-c8a96a?style=flat-square&labelColor=0c0b08)](https://kymera-art.com)
+![HTML](https://img.shields.io/badge/HTML-pure-c8a96a?style=flat-square&labelColor=0c0b08)
+![CSS](https://img.shields.io/badge/CSS-vanilla-c8a96a?style=flat-square&labelColor=0c0b08)
+![JS](https://img.shields.io/badge/JS-vanilla-c8a96a?style=flat-square&labelColor=0c0b08)
+[![Vercel](https://img.shields.io/badge/deploy-Vercel-c8a96a?style=flat-square&labelColor=0c0b08)](https://vercel.com)
+
+<br>
+
+</div>
 
 ---
 
@@ -10,31 +31,36 @@
 
 ```
 kymera/
-├── index.html          # celý web (inline kritické CSS + JS defer)
-├── style.css           # hlavní stylesheet
-├── script.js           # menu, formulář, lightbox, cookie banner
-├── vercel.json         # security headers (CSP, HSTS, X-Frame)
-├── robots.txt
-├── sitemap.xml
+│
+├── index.html              ← celý web (kritické CSS inline, JS defer)
+├── style.css               ← hlavní stylesheet
+├── script.js               ← menu · formulář · lightbox · cookies
+├── vercel.json             ← CSP · HSTS · X-Frame-Options
+├── robots.txt · sitemap.xml
+│
 ├── legal/
-│   ├── gdpr.html
-│   ├── podminky.html
-│   └── cookies.html
+│   ├── gdpr.html           ← zásady zpracování osobních údajů
+│   ├── podminky.html       ← obchodní podmínky
+│   └── cookies.html        ← cookie politika
+│
 └── assets/
-    ├── fonts/          # Inter + Cormorant Garamond (.woff2, lokálně)
-    ├── img/            # hero, kolekce, díla, about (.webp)
-    └── galerie/        # 12 děl pro lightbox (.webp)
+    ├── fonts/              ← Inter + Cormorant Garamond (lokální .woff2)
+    ├── img/                ← hero · kolekce · díla · about (.webp)
+    └── galerie/            ← 12 děl pro lightbox (.webp)
 ```
 
 ---
 
-## Nastavení před spuštěním
+## Nastavení
 
-**Web3Forms** — kontaktní formulář v `index.html`:
+Jediná věc která chybí před ostrým provozem:
+
 ```html
+<!-- index.html, sekce kontakt -->
 <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
 ```
-Klíč si vygeneruj na [web3forms.com](https://web3forms.com) (free tier stačí).
+
+→ Klíč na [web3forms.com](https://web3forms.com) · free tier stačí
 
 ---
 
@@ -42,31 +68,44 @@ Klíč si vygeneruj na [web3forms.com](https://web3forms.com) (free tier stačí
 
 ```bash
 python3 -m http.server 8080
-# → http://localhost:8080
 ```
+
+`http://localhost:8080` — žádný build, žádné závislosti.
 
 ---
 
-## Nasazení
+## Deploy
 
-Repo je napojeno na **Vercel** přes GitHub — push do `main` = automatický deploy.
+Push do `main` = automatický deploy přes Vercel.
 
 ```bash
 git add .
-git commit -m "popis změny"
+git commit -m "..."
 git push origin main
 ```
 
-Vercel nastavení: Framework Preset **Other**, Build Command prázdné, Output Directory prázdné.
+> Vercel: Framework **Other** · Build Command prázdné · Output Directory prázdné
 
 ---
 
 ## Brand
 
-| Token | Hodnota |
-|-------|---------|
-| Pozadí | `#0c0b08` |
-| Písmo | `#ece3cd` |
-| Mosaz | `#c8a96a` |
-| Serif | Cormorant Garamond |
-| Sans | Inter |
+<div align="center">
+
+| | Token | Hodnota |
+|---|---|---|
+| ⬛ | Pozadí | `#0c0b08` |
+| 🟫 | Povrch | `#15140f` |
+| 🟡 | Mosaz | `#c8a96a` |
+| 🔤 | Serif | Cormorant Garamond |
+| 🔤 | Sans | Inter |
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>© 2026 Jakub Nowicki · KYMERA · Třinec, ČR</sub>
+
+</div>
