@@ -1,62 +1,97 @@
 <div align="center">
 
+<img src="assets/img/about.webp" height="360" alt="KYMERA — Originální industriální umění"/>
+
+<br><br>
+
+<h1>KYMERA</h1>
+
+<p><em>Lidská forma protkaná soukolím. Každé dílo originál.</em></p>
+
 <br>
+
+[![Live](https://img.shields.io/badge/🌐_live-kymera--art.com-c8a96a?style=for-the-badge&labelColor=0c0b08)](https://kymera-art.com)
+
+<br>
+
+![HTML](https://img.shields.io/badge/HTML-pure-c8a96a?style=flat-square&labelColor=15140f)
+![CSS](https://img.shields.io/badge/CSS-vanilla-c8a96a?style=flat-square&labelColor=15140f)
+![JS](https://img.shields.io/badge/JS-vanilla-c8a96a?style=flat-square&labelColor=15140f)
+![Vercel](https://img.shields.io/badge/Vercel-deployed-c8a96a?style=flat-square&labelColor=15140f)
+![No build](https://img.shields.io/badge/build_step-none-c8a96a?style=flat-square&labelColor=15140f)
+
+<br>
+
+![Performance](https://img.shields.io/badge/Performance-92-orange?style=flat-square&logo=lighthouse&logoColor=white)
+![Accessibility](https://img.shields.io/badge/Accessibility-100-brightgreen?style=flat-square&logo=lighthouse&logoColor=white)
+![Best Practices](https://img.shields.io/badge/Best_Practices-96-brightgreen?style=flat-square&logo=lighthouse&logoColor=white)
+![SEO](https://img.shields.io/badge/SEO-100-brightgreen?style=flat-square&logo=lighthouse&logoColor=white)
+
+</div>
+
+<br>
+
+---
+
+## Obsah
+
+| Sekce | Soubor | Popis |
+|---|---|---|
+| 🏠 Hlavní stránka | `index.html` | Celý web — hero, galerie, kontakt |
+| 🎨 Styly | `style.css` | Hlavní stylesheet |
+| ⚙️ Skripty | `script.js` | Menu, formulář, lightbox, cookies |
+| 🔒 Security | `vercel.json` | CSP, HSTS, X-Frame-Options |
+| ⚖️ GDPR | `legal/gdpr.html` | Zásady zpracování osobních údajů |
+| 📄 Podmínky | `legal/podminky.html` | Obchodní podmínky |
+| 🍪 Cookies | `legal/cookies.html` | Cookie politika |
+
+---
+
+## Struktura projektu
 
 ```
-  ██╗  ██╗██╗   ██╗███╗   ███╗███████╗██████╗  █████╗
-  ██║ ██╔╝╚██╗ ██╔╝████╗ ████║██╔════╝██╔══██╗██╔══██╗
-  █████╔╝  ╚████╔╝ ██╔████╔██║█████╗  ██████╔╝███████║
-  ██╔═██╗   ╚██╔╝  ██║╚██╔╝██║██╔══╝  ██╔══██╗██╔══██║
-  ██║  ██╗   ██║   ██║ ╚═╝ ██║███████╗██║  ██║██║  ██║
-  ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
+kymera/
+├── index.html
+├── style.css
+├── script.js
+├── vercel.json
+├── robots.txt
+├── sitemap.xml
+├── legal/
+│   ├── gdpr.html
+│   ├── podminky.html
+│   └── cookies.html
+└── assets/
+    ├── fonts/        ← Inter + Cormorant Garamond (lokální .woff2)
+    ├── img/          ← hero · kolekce · díla · about (.webp, RGBA)
+    └── galerie/      ← 12 děl pro lightbox (.webp)
 ```
 
-**Originální industriální umělecká díla**
+---
 
-<br>
+## Díla
 
-[![Live](https://img.shields.io/badge/live-kymera--art.com-c8a96a?style=flat-square&labelColor=0c0b08)](https://kymera-art.com)
-![HTML](https://img.shields.io/badge/HTML-pure-c8a96a?style=flat-square&labelColor=0c0b08)
-![CSS](https://img.shields.io/badge/CSS-vanilla-c8a96a?style=flat-square&labelColor=0c0b08)
-![JS](https://img.shields.io/badge/JS-vanilla-c8a96a?style=flat-square&labelColor=0c0b08)
-[![Vercel](https://img.shields.io/badge/deploy-Vercel-c8a96a?style=flat-square&labelColor=0c0b08)](https://vercel.com)
+<div align="center">
 
-<br>
+| Figurální objekty | Hlavy a busty | Mechanické figury |
+|:---:|:---:|:---:|
+| <img src="assets/img/collection-figurative.webp" width="180"/> | <img src="assets/img/collection-busts.webp" width="180"/> | <img src="assets/img/collection-industrial.webp" width="180"/> |
 
 </div>
 
 ---
 
-## Struktura
+## Spuštění
 
-```
-kymera/
-│
-├── index.html              ← celý web (kritické CSS inline, JS defer)
-├── style.css               ← hlavní stylesheet
-├── script.js               ← menu · formulář · lightbox · cookies
-├── vercel.json             ← CSP · HSTS · X-Frame-Options
-├── robots.txt · sitemap.xml
-│
-├── legal/
-│   ├── gdpr.html           ← zásady zpracování osobních údajů
-│   ├── podminky.html       ← obchodní podmínky
-│   └── cookies.html        ← cookie politika
-│
-└── assets/
-    ├── fonts/              ← Inter + Cormorant Garamond (lokální .woff2)
-    ├── img/                ← hero · kolekce · díla · about (.webp)
-    └── galerie/            ← 12 děl pro lightbox (.webp)
+```bash
+# lokálně — žádný install, žádný build
+python3 -m http.server 8080
 ```
 
----
-
-## Nastavení
-
-Jediná věc která chybí před ostrým provozem:
+**Jediné nastavení před ostrým provozem:**
 
 ```html
-<!-- index.html, sekce kontakt -->
+<!-- index.html — kontaktní formulář -->
 <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
 ```
 
@@ -64,27 +99,15 @@ Jediná věc která chybí před ostrým provozem:
 
 ---
 
-## Lokální spuštění
-
-```bash
-python3 -m http.server 8080
-```
-
-`http://localhost:8080` — žádný build, žádné závislosti.
-
----
-
 ## Deploy
-
-Push do `main` = automatický deploy přes Vercel.
 
 ```bash
 git add .
 git commit -m "..."
-git push origin main
+git push origin main   # → automatický deploy přes Vercel
 ```
 
-> Vercel: Framework **Other** · Build Command prázdné · Output Directory prázdné
+> **Vercel nastavení:** Framework `Other` · Build Command prázdné · Output Directory prázdné
 
 ---
 
@@ -92,13 +115,7 @@ git push origin main
 
 <div align="center">
 
-| | Token | Hodnota |
-|---|---|---|
-| ⬛ | Pozadí | `#0c0b08` |
-| 🟫 | Povrch | `#15140f` |
-| 🟡 | Mosaz | `#c8a96a` |
-| 🔤 | Serif | Cormorant Garamond |
-| 🔤 | Sans | Inter |
+`#0c0b08` &nbsp;·&nbsp; `#15140f` &nbsp;·&nbsp; `#c8a96a` &nbsp;·&nbsp; Cormorant Garamond &nbsp;·&nbsp; Inter
 
 </div>
 
@@ -106,6 +123,6 @@ git push origin main
 
 <div align="center">
 
-<sub>© 2026 Jakub Nowicki · KYMERA · Třinec, ČR</sub>
+<sub>© 2026 Jakub Nowicki &nbsp;·&nbsp; KYMERA &nbsp;·&nbsp; Atelier Třinec, ČR</sub>
 
 </div>
