@@ -236,9 +236,10 @@
 
 /* ── 360 gallery item frame ── */
 .gallery-item:has([data-v360]) > button {
-  box-shadow: inset 0 0 0 1px rgba(200, 169, 106, 0.18);
-  transition: box-shadow 0.4s ease;
+  box-shadow: inset 0 0 0 2px rgba(200, 169, 106, 0.50);
+  transition: box-shadow 0.35s ease;
 }
 .gallery-item:has([data-v360]):hover > button {
-  box-shadow: inset 0 0 0 1px rgba(200, 169, 106, 0.55);
+  box-shadow: inset 0 0 0 2px rgba(200, 169, 106, 0.90),
+              0 0 20px rgba(200, 169, 106, 0.12);
 }
