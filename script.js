@@ -189,6 +189,8 @@
   }
 
   triggers.forEach(function(btn, i){
+    // Přeskočit tlačítka s data-v360 — ta otevírá vlastní 360° viewer
+    if (btn.hasAttribute && btn.hasAttribute('data-v360')) return;
     btn.addEventListener('click', function(){ open(i); });
   });
   btnClose.addEventListener('click', close);
