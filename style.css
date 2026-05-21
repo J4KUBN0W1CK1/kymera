@@ -761,6 +761,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
   margin:0; padding:0;
   display:flex; flex-direction:column;
   gap:14px;
+  position:relative;
 }
 .gallery-item > button{
   background:none; border:none; padding:0; margin:0;
