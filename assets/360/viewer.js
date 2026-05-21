@@ -182,6 +182,7 @@
 
     // Drag
     let dragging = false, lastX = 0, lastY = 0, dragMode = null;
+    let startX = 0, startY = 0, downTarget = null;
 
     function onDown(e) {
       if (closeBtn.contains(e.target)) return; // let close button handle its own touch
@@ -189,6 +190,8 @@
       stopInertia(); // cancel any running inertia
       dragging = true;
       lastX = ev.clientX; lastY = ev.clientY;
+      startX = ev.clientX; startY = ev.clientY;
+      downTarget = e.target;
       lastMoveTime = performance.now();
       dragMode = (zoom > 1) ? 'pan' : 'rotate';
       markInteracted();
@@ -228,6 +231,17 @@
       const wasRotating = dragMode === 'rotate';
       dragging = false;
       dragMode = null;
+
+      const ev = (e && e.changedTouches) ? e.changedTouches[0] : (e || {});
+      const totalDY = (ev.clientY || 0) - startY;
+      const totalDX = Math.abs((ev.clientX || 0) - startX);
+
+      // Swipe down to close (only when not zoomed)
+      if (zoom === 1 && totalDY > 80 && totalDX < 60) { close(); return; }
+
+      // Backdrop tap to close
+      if (totalDY < 10 && totalDX < 10 && downTarget === backdrop) { close(); return; }
+
       if (wasRotating) startInertia();
     }
 
