@@ -184,6 +184,7 @@
     let dragging = false, lastX = 0, lastY = 0, dragMode = null;
 
     function onDown(e) {
+      if (closeBtn.contains(e.target)) return; // let close button handle its own touch
       const ev = e.touches ? e.touches[0] : e;
       stopInertia(); // cancel any running inertia
       dragging = true;
@@ -291,6 +292,7 @@
       document.body.style.overflow = '';
     }
     closeBtn.addEventListener('click', close);
+    closeBtn.addEventListener('touchend', function (e) { e.stopPropagation(); close(); });
     backdrop.addEventListener('click', close);
 
     document.body.style.overflow = 'hidden';
