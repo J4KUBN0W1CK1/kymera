@@ -26,42 +26,76 @@
     const cfg = VIEWERS[key];
     if (!cfg) return;
 
-    // Build DOM
+    // Build DOM without innerHTML (Trusted Types CSP compatibility)
     const overlay = document.createElement('div');
     overlay.className = 'v360-overlay';
     overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-label', `360° prohlížeč — ${cfg.name}`);
-    overlay.innerHTML = `
-      <div class="v360-backdrop"></div>
-      <button class="v360-close" aria-label="Zavřít">×</button>
-      <div class="v360-stage">
-        <div class="v360-frames" id="v360-frames"></div>
-        <div class="v360-hint" id="v360-hint">
-          <span class="v360-hint-icon">↔</span> Táhni pro rotaci
-          <span class="v360-sep">·</span>
-          <span class="v360-hint-icon">⊕</span> Scroll pro zoom
-        </div>
-        <div class="v360-meta">
-          <span class="v360-title">${cfg.name}</span>
-          <span class="v360-tag">${cfg.tag}</span>
-        </div>
-        <div class="v360-progress">
-          <div class="v360-progress-bar" id="v360-bar"></div>
-        </div>
-      </div>
-    `;
+    overlay.setAttribute('aria-label', '360° prohlížeč — ' + cfg.name);
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'v360-backdrop';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'v360-close';
+    closeBtn.setAttribute('aria-label', 'Zavřít');
+    closeBtn.textContent = '×';
+
+    const framesEl = document.createElement('div');
+    framesEl.className = 'v360-frames';
+
+    const hintIcon1 = document.createElement('span');
+    hintIcon1.className = 'v360-hint-icon';
+    hintIcon1.textContent = '↔';
+    const hintSep = document.createElement('span');
+    hintSep.className = 'v360-sep';
+    hintSep.textContent = '·';
+    const hintIcon2 = document.createElement('span');
+    hintIcon2.className = 'v360-hint-icon';
+    hintIcon2.textContent = '⊕';
+    const hint = document.createElement('div');
+    hint.className = 'v360-hint';
+    hint.appendChild(hintIcon1);
+    hint.appendChild(document.createTextNode(' Táhni pro rotaci '));
+    hint.appendChild(hintSep);
+    hint.appendChild(document.createTextNode(' '));
+    hint.appendChild(hintIcon2);
+    hint.appendChild(document.createTextNode(' Scroll pro zoom'));
+
+    const titleEl = document.createElement('span');
+    titleEl.className = 'v360-title';
+    titleEl.textContent = cfg.name;
+    const tagEl = document.createElement('span');
+    tagEl.className = 'v360-tag';
+    tagEl.textContent = cfg.tag;
+    const meta = document.createElement('div');
+    meta.className = 'v360-meta';
+    meta.appendChild(titleEl);
+    meta.appendChild(tagEl);
+
+    const bar = document.createElement('div');
+    bar.className = 'v360-progress-bar';
+    const progress = document.createElement('div');
+    progress.className = 'v360-progress';
+    progress.appendChild(bar);
+
+    const stage = document.createElement('div');
+    stage.className = 'v360-stage';
+    stage.appendChild(framesEl);
+    stage.appendChild(hint);
+    stage.appendChild(meta);
+    stage.appendChild(progress);
+
+    overlay.appendChild(backdrop);
+    overlay.appendChild(closeBtn);
+    overlay.appendChild(stage);
     document.body.appendChild(overlay);
 
-    const framesEl = overlay.querySelector('#v360-frames');
-    const hint = overlay.querySelector('#v360-hint');
-    const bar = overlay.querySelector('#v360-bar');
-
-    // Build all 8 image elements stacked, only one visible at a time (+ neighbor for crossfade)
+    // Build all image elements stacked, only one visible at a time (+ neighbor for crossfade)
     const imgs = [];
     for (let i = 1; i <= cfg.frames; i++) {
       const img = document.createElement('img');
-      img.src = `${cfg.basePath}helia_${String(i).padStart(2, '0')}.webp`;
-      img.alt = `${cfg.name} — pozice ${i}/${cfg.frames}`;
+      img.src = cfg.basePath + key + '_' + String(i).padStart(2, '0') + '.webp';
+      img.alt = cfg.name + ' — pozice ' + i + '/' + cfg.frames;
       img.className = 'v360-img';
       img.draggable = false;
       img.style.opacity = '0';
@@ -89,9 +123,9 @@
         else if (k === i1) imgs[k].style.opacity = String(t);
         else imgs[k].style.opacity = '0';
       }
-      const transform = `translate(${panX}px, ${panY}px) scale(${zoom})`;
+      const transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoom + ')';
       framesEl.style.transform = transform;
-      bar.style.width = `${(pos / FRAMES) * 100}%`;
+      bar.style.width = (pos / FRAMES * 100) + '%';
     }
 
     function loop(ts) {
@@ -109,7 +143,7 @@
     requestAnimationFrame(loop);
 
     // Hide hint after 4s or first interaction
-    setTimeout(() => { if (hint) hint.classList.add('v360-hint--fade'); }, 4000);
+    setTimeout(function () { if (hint) hint.classList.add('v360-hint--fade'); }, 4000);
 
     function markInteracted() {
       if (!interacted) {
@@ -173,7 +207,7 @@
         markInteracted();
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
-        pinchStart = { dist: Math.hypot(dx, dy), zoom };
+        pinchStart = { dist: Math.hypot(dx, dy), zoom: zoom };
       }
     }, { passive: false });
     overlay.addEventListener('touchmove', function (e) {
@@ -204,15 +238,15 @@
       state = null;
       document.removeEventListener('keydown', onKey);
       overlay.classList.add('v360-overlay--out');
-      setTimeout(() => overlay.remove(), 250);
+      setTimeout(function () { overlay.remove(); }, 250);
       document.body.style.overflow = '';
     }
-    overlay.querySelector('.v360-close').addEventListener('click', close);
-    overlay.querySelector('.v360-backdrop').addEventListener('click', close);
+    closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
 
     document.body.style.overflow = 'hidden';
-    state = { close };
-    return { close };
+    state = { close: close };
+    return { close: close };
   }
 
   // Public API + auto-bind to gallery elements with data-v360
