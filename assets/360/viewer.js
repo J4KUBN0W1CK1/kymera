@@ -1,6 +1,6 @@
 /**
  * KYMERA 360° Viewer
- * - Drag (mouse/touch) → rotation
+ * - Drag (mouse/touch) → rotation with inertia
  * - Wheel/pinch → zoom (1× – 3×)
  * - Auto-rotate at start, stops on first interaction
  * - Crossfade between frames for smooth feel
@@ -15,8 +15,8 @@
       tag: 'Celopostava · patina',
       basePath: 'assets/360/helia/',
       frames: 8,
-      startFrame: 1, // index 0-based = 1 means frame_02 (user pick)
-      dragDirection: 'left', // 1→2→3... when dragging left
+      startFrame: 1,
+      dragDirection: 'left',
     },
   };
 
@@ -90,7 +90,7 @@
     overlay.appendChild(stage);
     document.body.appendChild(overlay);
 
-    // Build all image elements stacked, only one visible at a time (+ neighbor for crossfade)
+    // Build image elements
     const imgs = [];
     for (let i = 1; i <= cfg.frames; i++) {
       const img = document.createElement('img');
@@ -103,15 +103,20 @@
       imgs.push(img);
     }
 
-    // Sub-frame state (allows crossfade between integer frames)
-    let position = cfg.startFrame; // 0..frames (float)
+    // State
+    let position = cfg.startFrame;
     let zoom = 1;
     let panX = 0, panY = 0;
     let interacted = false;
     let autoRotate = true;
     let lastTs = 0;
-    const AUTO_RPS = 0.05; // rotations per second (20s full circle)
+    const AUTO_RPS = 0.05;
     const FRAMES = cfg.frames;
+
+    // Inertia state
+    let velocity = 0;       // position-units per ms
+    let lastMoveTime = 0;
+    let inertiaRaf = null;
 
     function render() {
       const pos = ((position % FRAMES) + FRAMES) % FRAMES;
@@ -123,9 +128,31 @@
         else if (k === i1) imgs[k].style.opacity = String(t);
         else imgs[k].style.opacity = '0';
       }
-      const transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoom + ')';
-      framesEl.style.transform = transform;
-      bar.style.width = (pos / FRAMES * 100) + '%';
+      framesEl.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoom + ')';
+      bar.style.width = (((position % FRAMES) + FRAMES) % FRAMES / FRAMES * 100) + '%';
+    }
+
+    function stopInertia() {
+      if (inertiaRaf) { cancelAnimationFrame(inertiaRaf); inertiaRaf = null; }
+      velocity = 0;
+    }
+
+    function startInertia() {
+      stopInertia();
+      if (Math.abs(velocity) < 0.0003) return;
+      var lastTs2 = performance.now();
+      function step(ts) {
+        if (!state) return;
+        var dt = Math.min(ts - lastTs2, 64); // cap at 64ms to avoid big jumps after tab switch
+        lastTs2 = ts;
+        // Exponential decay: 92% retention per 16ms frame
+        velocity *= Math.pow(0.92, dt / 16);
+        if (Math.abs(velocity) < 0.00015) { velocity = 0; return; }
+        position += velocity * dt;
+        render();
+        inertiaRaf = requestAnimationFrame(step);
+      }
+      inertiaRaf = requestAnimationFrame(step);
     }
 
     function loop(ts) {
@@ -142,7 +169,6 @@
     render();
     requestAnimationFrame(loop);
 
-    // Hide hint after 4s or first interaction
     setTimeout(function () { if (hint) hint.classList.add('v360-hint--fade'); }, 4000);
 
     function markInteracted() {
@@ -153,35 +179,55 @@
       }
     }
 
-    // Mouse drag
+    // Drag
     let dragging = false, lastX = 0, lastY = 0, dragMode = null;
+
     function onDown(e) {
       const ev = e.touches ? e.touches[0] : e;
+      stopInertia(); // cancel any running inertia
       dragging = true;
       lastX = ev.clientX; lastY = ev.clientY;
+      lastMoveTime = performance.now();
       dragMode = (zoom > 1) ? 'pan' : 'rotate';
       markInteracted();
       e.preventDefault();
     }
+
     function onMove(e) {
       if (!dragging) return;
       const ev = e.touches ? e.touches[0] : e;
       const dx = ev.clientX - lastX;
       const dy = ev.clientY - lastY;
+      const now = performance.now();
+      const dt = Math.max(now - lastMoveTime, 1);
+
       if (dragMode === 'pan') {
         panX += dx; panY += dy;
         const maxPan = 300 * (zoom - 1);
         panX = Math.max(-maxPan, Math.min(maxPan, panX));
         panY = Math.max(-maxPan, Math.min(maxPan, panY));
+        velocity = 0;
       } else {
-        // 220 px drag = full rotation; direction: drag left → forward (1→2→3...)
-        position += (dx / 220) * FRAMES * -1; // negative because left-drag means next frame
+        const delta = (dx / 220) * FRAMES * -1;
+        // Blend current velocity with new measurement for stability
+        const newVelocity = delta / dt;
+        velocity = velocity * 0.5 + newVelocity * 0.5;
+        position += delta;
       }
+
       lastX = ev.clientX; lastY = ev.clientY;
+      lastMoveTime = now;
       render();
       e.preventDefault();
     }
-    function onUp() { dragging = false; dragMode = null; }
+
+    function onUp(e) {
+      if (!dragging) return;
+      const wasRotating = dragMode === 'rotate';
+      dragging = false;
+      dragMode = null;
+      if (wasRotating) startInertia();
+    }
 
     overlay.addEventListener('mousedown', onDown);
     window.addEventListener('mousemove', onMove);
@@ -200,11 +246,12 @@
       e.preventDefault();
     }, { passive: false });
 
-    // Pinch zoom (touch)
+    // Pinch zoom
     let pinchStart = null;
     overlay.addEventListener('touchstart', function (e) {
       if (e.touches.length === 2) {
         markInteracted();
+        stopInertia();
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         pinchStart = { dist: Math.hypot(dx, dy), zoom: zoom };
@@ -226,8 +273,8 @@
     // Keyboard
     function onKey(e) {
       if (e.key === 'Escape') close();
-      else if (e.key === 'ArrowLeft') { markInteracted(); position -= 0.5; render(); }
-      else if (e.key === 'ArrowRight') { markInteracted(); position += 0.5; render(); }
+      else if (e.key === 'ArrowLeft')  { markInteracted(); stopInertia(); position -= 1; render(); }
+      else if (e.key === 'ArrowRight') { markInteracted(); stopInertia(); position += 1; render(); }
       else if (e.key === '+' || e.key === '=') { markInteracted(); zoom = Math.min(3, zoom + 0.2); render(); }
       else if (e.key === '-' || e.key === '_') { markInteracted(); zoom = Math.max(1, zoom - 0.2); if (zoom === 1) { panX = 0; panY = 0; } render(); }
     }
@@ -235,6 +282,7 @@
 
     // Close
     function close() {
+      stopInertia();
       state = null;
       document.removeEventListener('keydown', onKey);
       overlay.classList.add('v360-overlay--out');
@@ -249,7 +297,6 @@
     return { close: close };
   }
 
-  // Public API + auto-bind to gallery elements with data-v360
   window.KymeraViewer360 = { open: createViewer };
 
   document.addEventListener('DOMContentLoaded', function () {
