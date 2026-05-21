@@ -138,7 +138,8 @@
     }
 
     function startInertia() {
-      stopInertia();
+      // Cancel existing RAF but do NOT reset velocity — we need it for the inertia check
+      if (inertiaRaf) { cancelAnimationFrame(inertiaRaf); inertiaRaf = null; }
       if (Math.abs(velocity) < 0.0003) return;
       var lastTs2 = performance.now();
       function step(ts) {
