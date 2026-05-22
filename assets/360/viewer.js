@@ -96,7 +96,23 @@
 
     const zoomHint = document.createElement('div');
     zoomHint.className = 'v360-zoom-hint';
-    zoomHint.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>Zoom kolečkem';
+    const _ns = 'http://www.w3.org/2000/svg';
+    const _svg = document.createElementNS(_ns, 'svg');
+    _svg.setAttribute('width', '14'); _svg.setAttribute('height', '14');
+    _svg.setAttribute('viewBox', '0 0 24 24'); _svg.setAttribute('fill', 'none');
+    _svg.setAttribute('stroke', 'currentColor'); _svg.setAttribute('stroke-width', '1.8');
+    _svg.setAttribute('stroke-linecap', 'round'); _svg.setAttribute('stroke-linejoin', 'round');
+    const _c = document.createElementNS(_ns, 'circle');
+    _c.setAttribute('cx', '11'); _c.setAttribute('cy', '11'); _c.setAttribute('r', '7');
+    _svg.appendChild(_c);
+    [[21,21,16.65,16.65],[11,8,11,14],[8,11,14,11]].forEach(function(p) {
+      const l = document.createElementNS(_ns, 'line');
+      l.setAttribute('x1', p[0]); l.setAttribute('y1', p[1]);
+      l.setAttribute('x2', p[2]); l.setAttribute('y2', p[3]);
+      _svg.appendChild(l);
+    });
+    zoomHint.appendChild(_svg);
+    zoomHint.appendChild(document.createTextNode('Zoom kolečkem'));
 
     // Detail panel + tabs (outside framesEl so hiding framesEl doesn't affect them)
     let tabsEl = null;
