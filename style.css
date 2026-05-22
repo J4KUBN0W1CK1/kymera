@@ -315,8 +315,10 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
 
 /* ---------- COLLECTIONS ---------- */
 .collections-grid{
-  display:grid; grid-template-columns:repeat(3, 1fr);
+  display:grid; grid-template-columns:repeat(2, 1fr);
   gap:clamp(32px, 4vw, 64px);
+  max-width:900px;
+  margin-inline: auto;
 }
 .collection{ display:flex; flex-direction:column; }
 .collection-media{
@@ -359,16 +361,26 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
 .work-media{
   position:relative; aspect-ratio: 4 / 5;
   overflow:hidden;
-  background:#0f0e0a;
-  border:1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 50% 92%, rgba(200,169,106,.11) 0%, transparent 55%),
+    linear-gradient(170deg, #18160d 0%, #0e0d09 55%, #0b0a07 100%);
+  border:1px solid rgba(200,169,106,.18);
+  box-shadow: 0 0 0 1px rgba(200,169,106,.06);
 }
 .work-image{
   position:absolute; inset:0;
   background-size:cover; background-position:center;
-  background-color:#1a1812;
   transition:transform 1.4s var(--ease);
 }
-.work:hover .work-image{ transform:scale(1.03); }
+.work-image::after{
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at center, transparent 45%, rgba(9,8,6,.40) 100%),
+    linear-gradient(to bottom, rgba(9,8,6,.28) 0%, transparent 20%, transparent 60%, rgba(9,8,6,.65) 100%);
+  pointer-events:none;
+}
+.work:hover .work-image{ transform:scale(1.025); }
 .work-media .work-tag{
   position:absolute; top:16px; right:16px;
   font-size:10px; letter-spacing:0.28em; text-transform:uppercase;
@@ -617,7 +629,6 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
 }
 @media (min-width: 701px) and (max-width: 1100px){
   .collections-grid{ grid-template-columns:repeat(2, 1fr); gap:40px; }
-  .collections-grid .collection:nth-child(3){ grid-column: span 2; max-width:520px; margin:0 auto; }
   .works-grid{ grid-template-columns:repeat(2, 1fr); gap:56px 40px; }
   .works-grid .work:nth-child(3){ grid-column: span 2; max-width:520px; margin:0 auto; }
   .gallery-grid{ grid-template-columns:repeat(2, 1fr); gap:40px; }
