@@ -316,13 +316,20 @@
 
   window.KymeraViewer360 = { open: createViewer };
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function bindV360() {
     document.querySelectorAll('[data-v360]').forEach(function (el) {
+      if (el.__v360bound) return;
+      el.__v360bound = true;
       el.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
         createViewer(el.dataset.v360);
       });
     });
-  });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindV360);
+  } else {
+    bindV360();
+  }
 })();
