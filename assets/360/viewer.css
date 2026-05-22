@@ -292,7 +292,7 @@
 /* ── Zoom indicator (desktop only) ── */
 .v360-zoom-hint {
   position: absolute;
-  bottom: 28px;
+  top: 84px;
   right: 28px;
   z-index: 3;
   display: none;
