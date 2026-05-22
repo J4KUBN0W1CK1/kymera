@@ -17,6 +17,22 @@
       frames: 8,
       startFrame: 1,
       dragDirection: 'left',
+      details: [
+        { src: 'assets/360/helia/helia_detail_upper.webp', label: 'Detail · horní část' },
+        { src: 'assets/360/helia/helia_detail_lower.webp', label: 'Detail · dolní část' },
+      ],
+    },
+    diana: {
+      name: 'Diana',
+      tag: 'Celopostava · patina',
+      basePath: 'assets/360/diana/',
+      frames: 8,
+      startFrame: 1,
+      dragDirection: 'left',
+      details: [
+        { src: 'assets/360/diana/diana_detail_upper.webp', label: 'Detail · horní část' },
+        { src: 'assets/360/diana/diana_detail_lower.webp', label: 'Detail · dolní část' },
+      ],
     },
   };
 
@@ -78,12 +94,76 @@
     progress.className = 'v360-progress';
     progress.appendChild(bar);
 
+    // Detail panel + tabs (outside framesEl so hiding framesEl doesn't affect them)
+    let tabsEl = null;
+    let detailPanel = null;
+    let detailImgs = [];
+    let activeTab = 0;
+
+    if (cfg.details && cfg.details.length) {
+      tabsEl = document.createElement('div');
+      tabsEl.className = 'v360-tabs';
+
+      const tab0 = document.createElement('button');
+      tab0.className = 'v360-tab v360-tab--active';
+      tab0.textContent = '360°';
+      tab0.setAttribute('aria-label', 'Zobrazit 360° prohlídku');
+      tabsEl.appendChild(tab0);
+
+      detailPanel = document.createElement('div');
+      detailPanel.className = 'v360-detail-panel';
+      detailPanel.style.display = 'none';
+
+      cfg.details.forEach(function (d, di) {
+        const tab = document.createElement('button');
+        tab.className = 'v360-tab';
+        tab.textContent = d.label;
+        tab.setAttribute('aria-label', d.label);
+        tabsEl.appendChild(tab);
+
+        const dImg = document.createElement('img');
+        dImg.src = d.src;
+        dImg.alt = cfg.name + ' — ' + d.label;
+        dImg.className = 'v360-detail-img';
+        dImg.draggable = false;
+        dImg.style.display = 'none';
+        detailPanel.appendChild(dImg);
+        detailImgs.push(dImg);
+      });
+
+      function switchTab(idx) {
+        activeTab = idx;
+        Array.prototype.forEach.call(tabsEl.children, function (btn, i) {
+          btn.classList.toggle('v360-tab--active', i === idx);
+        });
+        if (idx === 0) {
+          framesEl.style.display = '';
+          detailPanel.style.display = 'none';
+          autoRotate = !interacted;
+          if (autoRotate) { lastTs = 0; requestAnimationFrame(loop); }
+        } else {
+          framesEl.style.display = 'none';
+          detailPanel.style.display = '';
+          detailImgs.forEach(function (di, i) {
+            di.style.display = (i === idx - 1) ? 'block' : 'none';
+          });
+          autoRotate = false;
+        }
+      }
+
+      Array.prototype.forEach.call(tabsEl.children, function (btn, i) {
+        btn.addEventListener('click', function (e) { e.stopPropagation(); switchTab(i); });
+      });
+    }
+
     const stage = document.createElement('div');
     stage.className = 'v360-stage';
     stage.appendChild(framesEl);
+    if (detailPanel) stage.appendChild(detailPanel);
     stage.appendChild(hint);
     stage.appendChild(meta);
     stage.appendChild(progress);
+    if (tabsEl) stage.appendChild(tabsEl);
 
     overlay.appendChild(backdrop);
     overlay.appendChild(closeBtn);
