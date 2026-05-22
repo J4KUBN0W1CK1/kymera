@@ -199,7 +199,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-origin: center;
+  will-change: transform;
+  cursor: grab;
 }
+.v360-overlay:active .v360-detail-panel { cursor: grabbing; }
 .v360-detail-img {
   max-width: 100%;
   max-height: 100%;

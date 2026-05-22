@@ -153,6 +153,8 @@
 
       function switchTab(idx) {
         activeTab = idx;
+        detailZoom = 1; detailPanX = 0; detailPanY = 0;
+        renderDetail();
         Array.prototype.forEach.call(tabsEl.children, function (btn, i) {
           btn.classList.toggle('v360-tab--active', i === idx);
         });
@@ -208,6 +210,7 @@
     let position = cfg.startFrame;
     let zoom = 1;
     let panX = 0, panY = 0;
+    let detailZoom = 1, detailPanX = 0, detailPanY = 0;
     let interacted = false;
     let autoRotate = true;
     let lastTs = 0;
@@ -231,6 +234,11 @@
       }
       framesEl.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoom + ')';
       bar.style.width = (((position % FRAMES) + FRAMES) % FRAMES / FRAMES * 100) + '%';
+    }
+
+    function renderDetail() {
+      if (!detailPanel) return;
+      detailPanel.style.transform = 'translate(' + detailPanX + 'px, ' + detailPanY + 'px) scale(' + detailZoom + ')';
     }
 
     function stopInertia() {
@@ -306,7 +314,7 @@
       startX = ev.clientX; startY = ev.clientY;
       downTarget = e.target;
       lastMoveTime = performance.now();
-      dragMode = (zoom > 1) ? 'pan' : 'rotate';
+      dragMode = (activeTab > 0) ? (detailZoom > 1 ? 'detailPan' : null) : (zoom > 1 ? 'pan' : 'rotate');
       markInteracted();
       e.preventDefault();
     }
@@ -319,23 +327,29 @@
       const now = performance.now();
       const dt = Math.max(now - lastMoveTime, 1);
 
-      if (dragMode === 'pan') {
+      if (dragMode === 'detailPan') {
+        detailPanX += dx; detailPanY += dy;
+        const maxPan = 400 * (detailZoom - 1);
+        detailPanX = Math.max(-maxPan, Math.min(maxPan, detailPanX));
+        detailPanY = Math.max(-maxPan, Math.min(maxPan, detailPanY));
+        renderDetail();
+      } else if (dragMode === 'pan') {
         panX += dx; panY += dy;
         const maxPan = 300 * (zoom - 1);
         panX = Math.max(-maxPan, Math.min(maxPan, panX));
         panY = Math.max(-maxPan, Math.min(maxPan, panY));
         velocity = 0;
-      } else {
+        render();
+      } else if (dragMode === 'rotate') {
         const delta = (dx / 220) * FRAMES * -1;
-        // Blend current velocity with new measurement for stability
         const newVelocity = delta / dt;
         velocity = velocity * 0.5 + newVelocity * 0.5;
         position += delta;
+        render();
       }
 
       lastX = ev.clientX; lastY = ev.clientY;
       lastMoveTime = now;
-      render();
       e.preventDefault();
     }
 
@@ -350,7 +364,8 @@
       const totalDX = Math.abs((ev.clientX || 0) - startX);
 
       // Swipe down to close (only when not zoomed)
-      if (zoom === 1 && totalDY > 80 && totalDX < 60) { close(); return; }
+      const curZoom = activeTab > 0 ? detailZoom : zoom;
+      if (curZoom === 1 && totalDY > 80 && totalDX < 60) { close(); return; }
 
       // Backdrop tap to close
       if (totalDY < 10 && totalDX < 10 && downTarget === backdrop) { close(); return; }
@@ -369,9 +384,15 @@
     overlay.addEventListener('wheel', function (e) {
       markInteracted();
       const delta = -e.deltaY * 0.002;
-      zoom = Math.max(1, Math.min(3, zoom + delta));
-      if (zoom === 1) { panX = 0; panY = 0; }
-      render();
+      if (activeTab > 0) {
+        detailZoom = Math.max(1, Math.min(5, detailZoom + delta * detailZoom));
+        if (detailZoom === 1) { detailPanX = 0; detailPanY = 0; }
+        renderDetail();
+      } else {
+        zoom = Math.max(1, Math.min(3, zoom + delta));
+        if (zoom === 1) { panX = 0; panY = 0; }
+        render();
+      }
       e.preventDefault();
     }, { passive: false });
 
@@ -383,7 +404,7 @@
         stopInertia();
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
-        pinchStart = { dist: Math.hypot(dx, dy), zoom: zoom };
+        pinchStart = { dist: Math.hypot(dx, dy), zoom: activeTab > 0 ? detailZoom : zoom };
       }
     }, { passive: false });
     overlay.addEventListener('touchmove', function (e) {
@@ -391,9 +412,15 @@
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         const dist = Math.hypot(dx, dy);
-        zoom = Math.max(1, Math.min(3, pinchStart.zoom * (dist / pinchStart.dist)));
-        if (zoom === 1) { panX = 0; panY = 0; }
-        render();
+        if (activeTab > 0) {
+          detailZoom = Math.max(1, Math.min(5, pinchStart.zoom * (dist / pinchStart.dist)));
+          if (detailZoom === 1) { detailPanX = 0; detailPanY = 0; }
+          renderDetail();
+        } else {
+          zoom = Math.max(1, Math.min(3, pinchStart.zoom * (dist / pinchStart.dist)));
+          if (zoom === 1) { panX = 0; panY = 0; }
+          render();
+        }
         e.preventDefault();
       }
     }, { passive: false });
