@@ -306,7 +306,8 @@
     let startX = 0, startY = 0, downTarget = null;
 
     function onDown(e) {
-      if (closeBtn.contains(e.target)) return; // let close button handle its own touch
+      if (closeBtn.contains(e.target)) return;
+      if (tabsEl && tabsEl.contains(e.target)) return;
       const ev = e.touches ? e.touches[0] : e;
       stopInertia(); // cancel any running inertia
       dragging = true;
