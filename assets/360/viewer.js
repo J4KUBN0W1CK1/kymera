@@ -94,6 +94,10 @@
     progress.className = 'v360-progress';
     progress.appendChild(bar);
 
+    const zoomHint = document.createElement('div');
+    zoomHint.className = 'v360-zoom-hint';
+    zoomHint.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>Zoom kolečkem';
+
     // Detail panel + tabs (outside framesEl so hiding framesEl doesn't affect them)
     let tabsEl = null;
     let detailPanel = null;
@@ -163,6 +167,7 @@
     stage.appendChild(hint);
     stage.appendChild(meta);
     stage.appendChild(progress);
+    stage.appendChild(zoomHint);
     if (tabsEl) stage.appendChild(tabsEl);
 
     overlay.appendChild(backdrop);
@@ -217,18 +222,30 @@
       velocity = 0;
     }
 
+    function snapToFrame() {
+      if (!state || dragging) return;
+      var norm = ((position % FRAMES) + FRAMES) % FRAMES;
+      var target = Math.round(norm);
+      if (target === FRAMES) target = 0;
+      var diff = target - norm;
+      if (diff > FRAMES / 2) diff -= FRAMES;
+      if (diff < -FRAMES / 2) diff += FRAMES;
+      if (Math.abs(diff) < 0.015) { position = Math.round(position); render(); return; }
+      position += diff * 0.2;
+      render();
+      inertiaRaf = requestAnimationFrame(snapToFrame);
+    }
+
     function startInertia() {
-      // Cancel existing RAF but do NOT reset velocity — we need it for the inertia check
       if (inertiaRaf) { cancelAnimationFrame(inertiaRaf); inertiaRaf = null; }
-      if (Math.abs(velocity) < 0.0003) return;
+      if (Math.abs(velocity) < 0.0003) { snapToFrame(); return; }
       var lastTs2 = performance.now();
       function step(ts) {
         if (!state) return;
-        var dt = Math.min(ts - lastTs2, 64); // cap at 64ms to avoid big jumps after tab switch
+        var dt = Math.min(ts - lastTs2, 64);
         lastTs2 = ts;
-        // Exponential decay: 92% retention per 16ms frame
         velocity *= Math.pow(0.92, dt / 16);
-        if (Math.abs(velocity) < 0.00015) { velocity = 0; return; }
+        if (Math.abs(velocity) < 0.00015) { velocity = 0; snapToFrame(); return; }
         position += velocity * dt;
         render();
         inertiaRaf = requestAnimationFrame(step);

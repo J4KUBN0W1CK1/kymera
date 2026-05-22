@@ -99,7 +99,6 @@
   object-fit: contain;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: opacity 0.06s linear;
   will-change: opacity;
   filter: drop-shadow(0 12px 48px rgba(0, 0, 0, 0.7));
 }
@@ -288,6 +287,36 @@
   .v360-tag { font-size: 9px; }
   .v360-hint { font-size: 9px; padding: 8px 14px; bottom: 48px; }
   .v360-progress { bottom: 20px; width: 60vw; }
+}
+
+/* ── Zoom indicator (desktop only) ── */
+.v360-zoom-hint {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  z-index: 3;
+  display: none;
+  align-items: center;
+  gap: 7px;
+  background: rgba(12, 11, 8, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 169, 106, 0.22);
+  border-radius: 999px;
+  padding: 9px 16px;
+  color: rgba(200, 191, 168, 0.80);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.v360-zoom-hint svg { opacity: 0.85; color: #c8a96a; }
+@media (pointer: fine) {
+  .v360-zoom-hint { display: flex; }
 }
 
 /* ── 360 gallery item frame ── */
