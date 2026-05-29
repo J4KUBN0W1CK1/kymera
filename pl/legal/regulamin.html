@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulamin — KYMERA</title>
+  <link rel="alternate" hreflang="cs" href="https://kymera-art.com/legal/podminky.html" />
+  <link rel="alternate" hreflang="en" href="https://kymera-art.com/en/legal/terms.html" />
+  <link rel="alternate" hreflang="pl" href="https://kymera-art.com/pl/legal/regulamin.html" />
+  <link rel="alternate" hreflang="x-default" href="https://kymera-art.com/legal/podminky.html" />
+  <link rel="canonical" href="https://kymera-art.com/pl/legal/regulamin.html" />
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/inter-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/inter-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/cg-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/cg-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #15140f; --surface: #1c1a13; --text: #e8e4d8; --text-muted: #a09880; --brass: #b8925a; --brass-light: #d4aa72; --border: #2e2b20; }
+    html { background-color: var(--bg); color: var(--text); font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+    .legal-nav { padding: 28px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; max-width: 760px; margin: 0 auto; width: 100%; }
+    .legal-nav a.home-link { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.35rem; letter-spacing: 0.12em; color: var(--text); text-decoration: none; text-transform: uppercase; }
+    .legal-nav a.home-link:hover { color: var(--brass-light); }
+    .back-link { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .back-link:hover { color: var(--brass-light); border-color: var(--brass-light); }
+    main { flex: 1; max-width: 720px; margin: 0 auto; padding: 72px 20px 100px; width: 100%; }
+    .legal-badge { display: inline-block; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); border: 1px solid var(--brass); padding: 4px 12px; margin-bottom: 28px; }
+    h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 12px; letter-spacing: 0.01em; }
+    .updated { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.04em; margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; font-weight: 400; color: var(--brass-light); margin-bottom: 14px; margin-top: 48px; letter-spacing: 0.03em; }
+    p { color: var(--text); margin-bottom: 14px; font-size: 0.95rem; }
+    ul, ol { padding-left: 1.4em; margin-bottom: 14px; }
+    li { font-size: 0.95rem; color: var(--text); margin-bottom: 7px; }
+    .highlight-box { background: var(--surface); border-left: 2px solid var(--brass); padding: 18px 22px; margin: 22px 0; }
+    .highlight-box p { margin-bottom: 0; font-size: 0.9rem; }
+    .note-box { background: var(--surface); border: 1px solid var(--border); padding: 14px 20px; margin: 18px 0; font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+    .note-box strong { font-style: normal; }
+    strong { color: var(--brass-light); font-weight: 500; }
+    section { margin-bottom: 8px; }
+    .intro-lead { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.05rem; color: var(--text-muted); font-style: italic; margin-bottom: 48px; line-height: 1.6; }
+    footer { border-top: 1px solid var(--border); padding: 36px 20px; }
+    .footer-inner { max-width: 720px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: flex-start; }
+    .footer-brand { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+    .footer-contact { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--text-muted); text-decoration: none; }
+    .footer-contact a:hover { color: var(--brass-light); }
+    .footer-legal-links { font-size: 0.75rem; color: var(--text-muted); display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+    .footer-legal-links a { color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-legal-links a:hover { color: var(--brass-light); }
+    .footer-copy { width: 100%; border-top: 1px solid var(--border); margin-top: 20px; padding-top: 16px; font-size: 0.75rem; color: var(--text-muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  </style>
+</head>
+<body>
+
+  <div class="legal-nav">
+    <a href="https://kymera-art.com/pl/" class="home-link">Kymera</a>
+    <a href="https://kymera-art.com/pl/" class="back-link">← Powrót do strony głównej</a>
+  </div>
+
+  <main>
+    <div class="legal-badge">Dokumenty prawne</div>
+    <h1>Regulamin</h1>
+    <p class="updated">Ostatnia aktualizacja: 29 maja 2026 — Wersja 2.0</p>
+
+    <p class="intro-lead">Każde dzieło KYMERA powstaje jako oryginał — dla konkretnej osoby, do konkretnego miejsca. Niniejszy regulamin określa zasady współpracy w taki sposób, aby cały proces był dla obu stron zrozumiały i oparty na zaufaniu.</p>
+
+    <section>
+      <h2>1. Operator i sprzedawca</h2>
+      <p>Niniejszy regulamin reguluje stosunek między:</p>
+      <div class="highlight-box">
+        <p><strong>Jakub Nowicki</strong> (zwany dalej „autorem" lub „sprzedawcą")<br>
+        Frýdecká 851, 739 61 Trzyniec, Republika Czeska<br>
+        REGON/IČO (czeski numer identyfikacyjny): 01817566<br>
+        VAT ID: CZ01817566 (płatnik VAT)<br>
+        Wpisany do ewidencji działalności gospodarczej, właściwy urząd: Magistrat Miasta Trzyniec.<br>
+        Tel.: <a href="tel:+420734548884" style="color: var(--brass-light);">+420 734 548 884</a><br>
+        E-mail: <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a><br>
+        Strona: <a href="https://kymera-art.com" style="color: var(--brass-light);">kymera-art.com</a></p>
+      </div>
+      <p>…a kupującym — osobą fizyczną lub prawną, która wyraziła zainteresowanie nabyciem dzieła sztuki (zwanym dalej „kupującym" lub „kolekcjonerem").</p>
+      <p>Niniejszy regulamin podlega prawu Republiki Czeskiej, w szczególności ustawie nr 89/2012 Sb. — czeskiemu Kodeksowi cywilnemu (zwanemu dalej „KCyw."), oraz ustawie nr 634/1992 Sb. o ochronie konsumenta, o ile kupujący jest konsumentem w rozumieniu § 419 KCyw.</p>
+      <p><strong>Konsumentem</strong> jest osoba fizyczna, która nie działa w ramach swojej działalności gospodarczej ani w ramach samodzielnego wykonywania zawodu (§ 419 KCyw.). Konsumentom przysługują szczególne przepisy ochronne wynikające z ustawy nr 634/1992 Sb. oraz odpowiednich przepisów KCyw.</p>
+      <p><strong>Przedsiębiorcą</strong> jest osoba działająca w ramach swojej działalności gospodarczej lub zawodowej — zazwyczaj architekci, studia projektowe lub inwestorzy nabywający dzieło w celach komercyjnych. Przepisy ochrony konsumenta nie mają zastosowania do przedsiębiorców.</p>
+    </section>
+
+    <section>
+      <h2>2. Przedmiot sprzedaży</h2>
+      <p>Przedmiotem niniejszego regulaminu jest sprzedaż oryginalnych rzeźb artystycznych i obiektów autorstwa Jakuba Nowicki, wykonanych z drewna z osadzoną mechaniką (zwanych dalej „dziełem" lub „rzeźbą"). Każde dzieło jest:</p>
+      <ul>
+        <li>oryginalnym wytworem — nie istnieje w żadnej kopii ani replice</li>
+        <li>opatrzone unikalnym numerem i certyfikatem autentyczności</li>
+        <li>udokumentowane fotograficznie przed wysyłką</li>
+      </ul>
+      <p>KYMERA nie produkuje limitowanych edycji, reprodukcji seryjnych ani odbitek autorskich — cała oferta składa się wyłącznie z oryginalnych dzieł.</p>
+    </section>
+
+    <section>
+      <h2>3. Cena</h2>
+      <p>Ceny dzieł nie są standardowo podawane na stronie. Każde dzieło jest wyceniane indywidualnie z uwzględnieniem wymiarów, materiałów, złożoności mechaniki i aktualnej dostępności. Orientacyjna cena wyjściowa wynosi <strong>60 000 CZK</strong>.</p>
+      <p>Konkretna wycena jest przesyłana na zapytanie po konsultacji osobistej lub mailowej. Cena obowiązuje przez okres wskazany w ofercie, nie krócej jednak niż 14 dni od jej doręczenia.</p>
+      <p>Sprzedawca jest płatnikiem VAT. VAT ID: CZ01817566. Wszystkie ceny podane w ofercie cenowej są cenami ostatecznymi i zawierają podatek VAT w ustawowej wysokości, chyba że w ofercie wskazano inaczej.</p>
+    </section>
+
+    <section>
+      <h2>4. Zamówienie i zawarcie umowy</h2>
+      <p>Zainteresowanie dziełem można wyrazić poprzez:</p>
+      <ul>
+        <li>formularz kontaktowy na kymera-art.com</li>
+        <li>e-mail na adres <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a></li>
+        <li>telefonicznie lub osobiście po wcześniejszym uzgodnieniu</li>
+      </ul>
+      <p>Wyrażenie zainteresowania dziełem <strong>nie jest wiążącym zamówieniem</strong>. Umowa sprzedaży dzieła zostaje zawarta dopiero wówczas, gdy obie strony uzgodnią:</p>
+      <ol>
+        <li>konkretne dzieło (lub specyfikację dzieła tworzonego na zamówienie)</li>
+        <li>całkowitą cenę wraz ze sposobem dostawy</li>
+        <li>termin realizacji</li>
+        <li>zadatek i warunki płatności</li>
+      </ol>
+      <p>Potwierdzenie umowy jest wysyłane e-mailem, a autor potwierdza przyjęcie zamówienia zazwyczaj w ciągu 3 dni roboczych.</p>
+    </section>
+
+    <section>
+      <h2>5. Warunki płatności i zadatek</h2>
+      <p>Po zawarciu umowy wymagalne jest uiszczenie zadatku w wysokości <strong>30–50% całkowitej ceny dzieła</strong>, zazwyczaj w terminie 7 dni od zawarcia umowy. Dokładna wysokość zadatku zależy od charakteru dzieła i jest ustalana indywidualnie.</p>
+      <p>Zadatek stanowi bezzwrotny wkład pokrywający koszty rozpoczęcia produkcji autorskiej. W przypadku rezygnacji z zamówienia przez kupującego po rozpoczęciu produkcji zadatek nie podlega zwrotowi — zob. sekcja 10 (Odstąpienie od umowy).</p>
+      <p>Pozostała część ceny (<strong>dopłata końcowa</strong>) jest wymagalna przed wysyłką dzieła, najpóźniej w dniu wydania. Dopłata potwierdza gotowość kolekcjonera do odbioru dzieła.</p>
+      <p>Płatność odbywa się przelewem bankowym na rachunek autora. Przy osobistym odbiorze możliwa jest również płatność gotówkowa do ustawowego limitu.</p>
+    </section>
+
+    <section>
+      <h2>6. Czas realizacji i dostawa</h2>
+      <p>Każde dzieło jest wykonywane z pełnym skupieniem i starannością odpowiadającą jego charakterowi. Standardowy czas realizacji wynosi <strong>4 do 12 tygodni</strong> od zaksięgowania zadatku, w zależności od:</p>
+      <ul>
+        <li>złożoności mechaniki i wykończenia</li>
+        <li>wymiarów i wagi dzieła</li>
+        <li>aktualnej kolejności zleceń w atelier</li>
+      </ul>
+      <p>Dokładny termin jest zawsze wskazany w potwierdzeniu zamówienia. Autor na bieżąco informuje kolekcjonera o postępie produkcji oraz ewentualnych zmianach terminu bez zbędnej zwłoki.</p>
+    </section>
+
+    <section>
+      <h2>7. Transport i przekazanie dzieła</h2>
+      <p><strong>Republika Czeska:</strong> Dzieło dostarcza autor osobiście własnym pojazdem. Transport na terenie Czech jest wliczony w cenę dzieła. Autor uzgadnia konkretny termin i miejsce przekazania z kolekcjonerem indywidualnie. Osobiste przekazanie umożliwia również instruktaż dotyczący pielęgnacji dzieła i mechaniki na miejscu.</p>
+      <p><strong>Zagranica:</strong> Przy dostawie poza Czechy autor zapewnia transport za pośrednictwem specjalistycznej spedycji artystycznej lub kurierskiej. Koszty transportu międzynarodowego, ubezpieczenia i ewentualnych opłat celnych są przedmiotem indywidualnych uzgodnień i nie są wliczone w cenę dzieła.</p>
+      <p>Dzieło jest pakowane przed wysyłką w sposób odpowiadający jego wartości i delikatności. Kupujący ponosi ryzyko uszkodzenia dzieła od chwili jego odbioru.</p>
+    </section>
+
+    <section>
+      <h2>8. Oryginalność i certyfikat autentyczności</h2>
+      <p>Każda rzeźba KYMERA jest opatrzona:</p>
+      <ul>
+        <li><strong>Unikalnym numerem identyfikacyjnym</strong> dyskretnie umieszczonym na dziele</li>
+        <li><strong>Certyfikatem autentyczności</strong> podpisanym przez autora, z opisem dzieła, datą powstania i numerem obiektu</li>
+        <li><strong>Dokumentacją fotograficzną</strong> utrwalającą finalny stan dzieła przed wysyłką</li>
+      </ul>
+      <p>Certyfikat stanowi integralną część dostawy. Utrata certyfikatu nie podważa własności dzieła, lecz utrudnia ewentualną przyszłą weryfikację autentyczności. W przypadku utraty certyfikatu autor może na wniosek wystawić duplikat.</p>
+    </section>
+
+    <section>
+      <h2>9. Prawa autorskie</h2>
+      <p>Nabycie dzieła przenosi na kolekcjonera <strong>własność fizycznego obiektu</strong>. Wszelkie prawa autorskie do dzieła — w tym prawo do reprodukcji, wystawiania, rozpowszechniania lub tworzenia dzieł pochodnych — pozostają wyłącznie przy autorze w rozumieniu czeskiej ustawy nr 121/2000 Sb. (prawo autorskie).</p>
+      <p>Kolekcjoner jest uprawniony do:</p>
+      <ul>
+        <li>posiadania i wystawiania dzieła w przestrzeni prywatnej lub publicznej</li>
+        <li>fotografowania dzieła na potrzeby dokumentacji osobistej</li>
+        <li>dalszej odsprzedaży dzieła jako obiektu fizycznego (przy czym niniejsze ograniczenia przechodzą na nowego właściciela)</li>
+      </ul>
+      <p>Kolekcjoner nie jest uprawniony — bez wyraźnej pisemnej zgody autora — do:</p>
+      <ul>
+        <li>reprodukowania, odlewania, skanowania 3D lub kopiowania dzieła w jakikolwiek sposób</li>
+        <li>publikowania zdjęć dzieła w celach komercyjnych</li>
+        <li>modyfikowania dzieła lub włączania go do innych dzieł</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>10. Odstąpienie od umowy</h2>
+      <p>Jeśli kupujący jest <strong>konsumentem</strong> i umowa została zawarta na odległość (bez fizycznej obecności obu stron), przysługuje mu prawo do odstąpienia od umowy bez podania przyczyny w terminie <strong>14 dni</strong> od odbioru dzieła (§ 1829 czeskiego Kodeksu cywilnego).</p>
+      <div class="note-box">
+        <strong>Ważny wyjątek:</strong> prawo do odstąpienia od umowy w terminie 14 dni nie dotyczy dzieł wykonanych na zamówienie według specyfikacji konsumenta lub w sposób wyraźnie dostosowany do konkretnej osoby — wyjątek przewidziany dla towarów wykonanych według specyfikacji konsumenta (§ 1837 lit. d) czeskiego Kodeksu cywilnego). Wyjątek ten ma zastosowanie do większości zamówień KYMERA — konkretne zastosowanie wyjątku jest każdorazowo wskazane w potwierdzeniu zamówienia.
+      </div>
+      <p>Odstąpienie od umowy przez kupującego — poza ustawowymi uprawnieniami — podlega następującym zasadom:</p>
+      <ul>
+        <li>Przed rozpoczęciem produkcji: autor zwraca zadatek w pełnej wysokości w terminie 14 dni.</li>
+        <li>Po rozpoczęciu produkcji, ale przed ukończeniem: autor może potrącić udokumentowane poniesione koszty. Pozostała część zadatku zostaje zwrócona.</li>
+        <li>Po ukończeniu dzieła: zadatek nie podlega zwrotowi. Strony mogą uzgodnić inne rozwiązanie (np. odsprzedaż dzieła osobie trzeciej).</li>
+      </ul>
+      <p>Autor zastrzega sobie prawo do odstąpienia od umowy w przypadku nieprzewidywalnej utraty lub zniszczenia materiału, niezdolności do pracy z przyczyn zdrowotnych lub innej sytuacji siły wyższej. W takim przypadku zwraca zadatek w pełnej wysokości.</p>
+      <p><strong>Sposób zwrotu świadczenia:</strong> Świadczenie pieniężne zostanie zwrócone przelewem bankowym na rachunek kupującego w terminie 14 dni od uznania roszczenia, chyba że strony postanowią inaczej (§ 1832 czeskiego Kodeksu cywilnego).</p>
+    </section>
+
+    <section>
+      <h2>11. Reklamacje i gwarancja</h2>
+      <p>Autor gwarantuje, że dzieło:</p>
+      <ul>
+        <li>odpowiada opisowi i dokumentacji wskazanej w zamówieniu</li>
+        <li>zostało wykonane z profesjonalną starannością i przy użyciu wysokiej jakości materiałów</li>
+        <li>części mechaniczne są sprawne w chwili wydania</li>
+        <li>nie posiada ukrytych wad, o których autor wiedział lub powinien był wiedzieć</li>
+      </ul>
+      <p>Na dzieło przysługuje ustawowy okres gwarancji wynoszący <strong>24 miesiące</strong> od odbioru przez konsumenta (§ 2165 ust. 1 czeskiego Kodeksu cywilnego (ustawa nr 89/2012 Sb.)). Dla kupujących-przedsiębiorców obowiązują uprawnienia z tytułu wad na podstawie § 2099 i nast. czeskiego Kodeksu cywilnego bez ustawowego okresu gwarancji; ewentualna gwarancja jakości jest przedmiotem indywidualnych ustaleń. Reklamację kolekcjoner składa pisemnie na adres <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a> lub na adres autora, z opisem wady i dokumentacją fotograficzną.</p>
+      <p>Reklamacja nie obejmuje:</p>
+      <ul>
+        <li>naturalnych zmian materiału (drewno może pracować w zależności od wilgotności i temperatury)</li>
+        <li>uszkodzeń powstałych w wyniku niewłaściwego obchodzenia się, modyfikacji lub niestosowania się do instrukcji pielęgnacji</li>
+        <li>odchyleń estetycznych, które są naturalną właściwością ręcznie wytwarzanego oryginału</li>
+      </ul>
+      <p>Reklamacja jest przyjęta z chwilą doręczenia pisemnego zgłoszenia z dokumentacją fotograficzną na e-mail lub adres autora. Autor potwierdza przyjęcie reklamacji bez zbędnej zwłoki, najpóźniej w ciągu 5 dni roboczych. Reklamacja zostanie rozpatrzona najpóźniej w terminie <strong>30 dni</strong> od jej złożenia (§ 19 ust. 3 ustawy nr 634/1992 Sb.). Jeśli autor nie rozpatrzy reklamacji w tym terminie, konsument ma prawo odstąpić od umowy lub żądać odpowiedniego obniżenia ceny.</p>
+      <p><strong>Sposób zwrotu świadczenia:</strong> Świadczenie pieniężne zostanie zwrócone przelewem bankowym na rachunek kupującego w terminie 14 dni od uznania roszczenia, chyba że strony postanowią inaczej (§ 1832 czeskiego Kodeksu cywilnego).</p>
+      <p>Do każdego dzieła dołączone są instrukcje pielęgnacji. Ich przestrzeganie przyczynia się do długowieczności dzieła i jest warunkiem ważności gwarancji w przypadku reklamacji części mechanicznych.</p>
+    </section>
+
+    <section>
+      <h2>12. Pozasądowe rozwiązywanie sporów</h2>
+      <p>Jeśli kupujący jest konsumentem i dojdzie do sporu wynikającego z umowy sprzedaży, którego nie uda się rozwiązać polubownie, konsument ma prawo zwrócić się o pozasądowe rozwiązanie sporu do <strong>Czeskiej Inspekcji Handlowej (ČOI)</strong> jako właściwego organu ds. pozasądowego rozwiązywania sporów konsumenckich:</p>
+      <ul>
+        <li>Platforma ADR ČOI: <a href="https://adr.coi.cz" style="color: var(--brass-light);">adr.coi.cz</a></li>
+        <li>Internetowa platforma UE do rozwiązywania sporów: <a href="https://ec.europa.eu/consumers/odr" style="color: var(--brass-light);">ec.europa.eu/consumers/odr</a></li>
+        <li>E-mail sprzedawcy dla celów ODR: <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a></li>
+      </ul>
+      <p>Sprzedawca nie sprzeciwia się udziałowi w pozasądowym rozwiązywaniu sporów.</p>
+    </section>
+
+    <section>
+      <h2>13. Postanowienia końcowe</h2>
+      <p>Niniejszy regulamin obowiązuje od 29 maja 2026. Autor zastrzega sobie prawo do aktualizacji regulaminu; aktualna wersja jest zawsze dostępna na kymera-art.com/pl/legal/regulamin.html. Do umów zawartych przed datą aktualizacji stosuje się warunki obowiązujące w chwili zawarcia umowy.</p>
+      <p>Ewentualne pytania dotyczące regulaminu autor udzieli pod adresem <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Kymera</div>
+      <div class="footer-contact">
+        Jakub Nowicki &nbsp;·&nbsp; Frýdecká 851, 739 61 Třinec<br>
+        <a href="mailto:atelier@kymera-art.com">atelier@kymera-art.com</a> &nbsp;·&nbsp;
+        <a href="tel:+420734548884">+420 734 548 884</a>
+      </div>
+      <div class="footer-legal-links">
+        <a href="rodo.html">Ochrona danych osobowych</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="regulamin.html">Regulamin</a>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 Jakub Nowicki. Wszelkie prawa zastrzeżone.</span>
+        <span>kymera-art.com</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

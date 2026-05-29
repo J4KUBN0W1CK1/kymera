@@ -11,6 +11,8 @@
   <meta name="theme-color" content="#15140f" />
   <link rel="canonical" href="https://kymera-art.com/" />
   <link rel="alternate" hreflang="cs" href="https://kymera-art.com/" />
+  <link rel="alternate" hreflang="en" href="https://kymera-art.com/en/" />
+  <link rel="alternate" hreflang="pl" href="https://kymera-art.com/pl/" />
   <link rel="alternate" hreflang="x-default" href="https://kymera-art.com/" />
 
   <!-- Open Graph -->
@@ -221,14 +223,20 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
   padding:2px;
   border-radius:var(--radius);
 }
-.lang-switch button{
+.lang-switch button,
+.lang-switch a.lang-btn{
   padding:6px 10px;
   font-size:11px;
   letter-spacing:0.2em;
   color:var(--ink-mute);
   border-radius:var(--radius);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
 }
-.lang-switch button.is-active{ color:var(--ink); background:rgba(232,222,200,.06); }
+.lang-switch button.is-active,
+.lang-switch a.lang-btn--active{ color:var(--ink); background:rgba(232,222,200,.06); }
+.lang-switch a.lang-btn:hover{ color:var(--ink); }
 .lang-switch button:disabled{ cursor:not-allowed; opacity:.45; }
 
 .nav-toggle{ display:none; width:40px; height:40px; position:relative; }
@@ -444,11 +452,10 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
       </nav>
 
       <div class="header-tools">
-        <!-- Připraveno pro CZ / EN / PL mutaci -->
         <div class="lang-switch" role="group" aria-label="Jazyk">
           <button type="button" class="is-active" aria-current="true">CZ</button>
-          <button type="button" disabled title="Připravujeme">EN</button>
-          <button type="button" disabled title="Připravujeme">PL</button>
+          <a href="/en/" class="lang-btn">EN</a>
+          <a href="/pl/" class="lang-btn">PL</a>
         </div>
         <a href="#kontakt" class="btn btn-ghost btn-sm">Poptat dílo</a>
       </div>
@@ -466,6 +473,11 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
       <a href="#pro-architekty">Pro architekty</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#kontakt" class="btn btn-primary">Poptat dílo →</a>
+      <div class="lang-switch" role="group" aria-label="Jazyk" style="margin-top:20px;">
+        <button type="button" class="is-active" aria-current="true">CZ</button>
+        <a href="/en/" class="lang-btn">EN</a>
+        <a href="/pl/" class="lang-btn">PL</a>
+      </div>
     </div>
   </header>
 

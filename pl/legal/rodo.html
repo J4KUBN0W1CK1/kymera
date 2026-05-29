@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zasady przetwarzania danych osobowych — KYMERA</title>
+  <link rel="canonical" href="https://kymera-art.com/pl/legal/rodo.html" />
+  <link rel="alternate" hreflang="cs" href="https://kymera-art.com/legal/gdpr.html" />
+  <link rel="alternate" hreflang="en" href="https://kymera-art.com/en/legal/privacy.html" />
+  <link rel="alternate" hreflang="pl" href="https://kymera-art.com/pl/legal/rodo.html" />
+  <link rel="alternate" hreflang="x-default" href="https://kymera-art.com/legal/gdpr.html" />
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/inter-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/inter-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/cg-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 600;font-display:swap;src:url('../../assets/fonts/cg-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #15140f;
+      --surface: #1c1a13;
+      --text: #e8e4d8;
+      --text-muted: #a09880;
+      --brass: #b8925a;
+      --brass-light: #d4aa72;
+      --border: #2e2b20;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Nav */
+    .legal-nav {
+      padding: 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .legal-nav a.home-link {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .legal-nav a.home-link:hover {
+      color: var(--brass-light);
+    }
+
+    .back-link {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--brass-light);
+      border-color: var(--brass-light);
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 20px 100px;
+      width: 100%;
+    }
+
+    .legal-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      border: 1px solid var(--brass);
+      padding: 4px 12px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .updated {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--brass-light);
+      margin-bottom: 14px;
+      margin-top: 48px;
+      letter-spacing: 0.03em;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    ul, ol {
+      padding-left: 1.4em;
+      margin-bottom: 14px;
+    }
+
+    li {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .highlight-box {
+      background: var(--surface);
+      border-left: 2px solid var(--brass);
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    strong {
+      color: var(--brass-light);
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 20px;
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .footer-contact {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-legal-links {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-legal-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .footer-legal-links a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-copy {
+      width: 100%;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+      padding-top: 16px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="legal-nav">
+    <a href="https://kymera-art.com/pl/" class="home-link">Kymera</a>
+    <a href="https://kymera-art.com/pl/" class="back-link">← Powrót do strony głównej</a>
+  </div>
+
+  <main>
+    <div class="legal-badge">Dokumenty prawne</div>
+    <h1>Zasady przetwarzania<br>danych osobowych</h1>
+    <p class="updated">Ostatnia aktualizacja: 29 maja 2026 — Wersja 2.0</p>
+
+    <section>
+      <h2>1. Administrator danych osobowych</h2>
+      <p>Administratorem Państwa danych osobowych jest:</p>
+      <div class="highlight-box">
+        <p><strong>Jakub Nowicki</strong><br>
+        Frýdecká 851, 739 61 Trzyniec<br>
+        Republika Czeska<br>
+        REGON/IČO (czeski numer identyfikacyjny): 01817566<br>
+        VAT ID: CZ01817566 (płatnik VAT)<br>
+        Wpisany do ewidencji działalności gospodarczej, właściwy urząd: Magistrat Miasta Trzyniec.<br>
+        Tel.: <a href="tel:+420734548884" style="color: var(--brass-light);">+420 734 548 884</a><br>
+        E-mail: <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a><br>
+        Strona: <a href="https://kymera-art.com" style="color: var(--brass-light);">kymera-art.com</a></p>
+      </div>
+      <p>Niniejsza strona informuje Państwa o tym, jakie dane osobowe przetwarzamy, w jakim celu oraz jakie przysługują Państwu prawa. Przetwarzanie odbywa się zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 — RODO (Rozporządzenie 2016/679, GDPR) — oraz ustawą nr 110/2019 Sb. o przetwarzaniu danych osobowych.</p>
+    </section>
+
+    <section>
+      <h2>2. Jakie dane przetwarzamy</h2>
+      <p>Przetwarzamy wyłącznie dane, które Państwo sami podają za pośrednictwem formularza kontaktowego na stronie kymera-art.com. Są to konkretnie:</p>
+      <ul>
+        <li><strong>Imię i nazwisko</strong> — abyśmy wiedzieli, jak się do Państwa zwracać</li>
+        <li><strong>Adres e-mail</strong> — do udzielenia odpowiedzi na Państwa zapytanie</li>
+        <li><strong>Numer telefonu</strong> — jeśli podają go Państwo dobrowolnie, do ewentualnej bezpośredniej komunikacji</li>
+        <li><strong>Treść wiadomości</strong> — zawartość Państwa zapytania lub pytania</li>
+      </ul>
+      <p>Nie prowadzimy automatycznego profilowania, nie zbieramy danych marketingowych, nie stosujemy technologii śledzących ani nie przetwarzamy żadnych szczególnych kategorii danych osobowych.</p>
+    </section>
+
+    <section>
+      <h2>3. Cel i podstawa prawna przetwarzania</h2>
+      <p>Państwa dane osobowe przetwarzamy w następujących celach i na następujących podstawach prawnych:</p>
+      <p><strong>a) Czynności przedumowne (realizacja zapytania)</strong><br>
+      Cel: rozpatrzenie zapytania, przygotowanie wyceny, komunikacja z zainteresowanym.<br>
+      Podstawa prawna: art. 6 ust. 1 lit. f) RODO — uzasadniony interes administratora polegający na odpowiedzi osobie, która sama skontaktowała się z administratorem. Mają Państwo prawo w dowolnym momencie <strong>wnieść sprzeciw</strong> (art. 21 RODO); przetwarzanie zostanie niezwłocznie zakończone, chyba że wykażemy istnienie ważnych prawnie uzasadnionych podstaw do jego kontynuowania.<br>
+      Przetwarzane dane: imię i nazwisko, e-mail, telefon, treść wiadomości, zainteresowanie dziełem.<br>
+      Okres przechowywania: 6 miesięcy od ostatniej komunikacji, jeśli nie doszło do zawarcia umowy.</p>
+      <p><strong>b) Wykonanie umowy (realizacja zlecenia)</strong><br>
+      Cel: zawarcie i wykonanie umowy sprzedaży lub umowy o dzieło, produkcja, dostawa, instalacja, fakturowanie.<br>
+      Podstawa prawna: art. 6 ust. 1 lit. b) RODO — środki podjęte przed zawarciem umowy oraz wykonanie umowy, której stroną jest osoba, której dane dotyczą.<br>
+      Przetwarzane dane: dane identyfikacyjne, fakturowe i kontaktowe, adres dostawy, dane bankowe.<br>
+      Okres przechowywania: przez okres trwania umowy oraz przez czas przedawnienia roszczeń.</p>
+      <p><strong>c) Wykonanie obowiązku prawnego (archiwizacja)</strong><br>
+      Cel: prowadzenie księgowości, ewidencja VAT, archiwizacja dokumentów podatkowych.<br>
+      Podstawa prawna: art. 6 ust. 1 lit. c) RODO — wypełnienie obowiązku prawnego wynikającego z ustawy nr 563/1991 Sb. o rachunkowości oraz ustawy nr 235/2004 Sb. o VAT.<br>
+      Przetwarzane dane: dokumenty fakturowe i umowne.<br>
+      Okres przechowywania: <strong>10 lat</strong> od zakończenia roku podatkowego, w którym nastąpiło świadczenie (§ 31 ust. 2 ustawy nr 563/1991 Sb., § 35 ust. 3 ustawy nr 235/2004 Sb.).</p>
+    </section>
+
+    <section>
+      <h2>4. Okres przechowywania</h2>
+      <p>Państwa dane przechowujemy przez czas niezbędny do rozpatrzenia zapytania i ewentualnego zawarcia umowy — zazwyczaj <strong>12 miesięcy</strong> od ostatniego kontaktu. Jeśli dojdzie do zawarcia umowy sprzedaży dzieła, archiwizujemy dokumentację umowną i fakturową przez <strong>10 lat</strong> od zakończenia roku podatkowego, w którym nastąpiło świadczenie (§ 31 ust. 2 ustawy nr 563/1991 Sb. o rachunkowości, § 35 ust. 3 ustawy nr 235/2004 Sb. o VAT). Obowiązek ten dotyczy danych fakturowych i identyfikacyjnych; zakres archiwizowanych danych jest ograniczony do minimum niezbędnego do wypełnienia obowiązku prawnego.</p>
+      <p>Po upływie odpowiedniego okresu Państwa dane są trwale usuwane.</p>
+    </section>
+
+    <section>
+      <h2>5. Przekazywanie danych podmiotom trzecim i transfery międzynarodowe</h2>
+      <p>Państwa danych nie sprzedajemy, nie wynajmujemy ani nie udostępniamy podmiotom trzecim w celach marketingowych. Wszelkie udostępnianie ogranicza się do technicznie niezbędnych operacji opisanych poniżej.</p>
+      <p>Niektóre dane osobowe są przetwarzane przez podmioty przetwarzające z siedzibą poza Europejskim Obszarem Gospodarczym, konkretnie w Stanach Zjednoczonych Ameryki:</p>
+      <div class="highlight-box">
+        <p><strong>Web3Forms</strong> (operator: ABLab LLC, USA) — przetwarzanie danych przesyłanych z formularza kontaktowego. Web3Forms występuje jako podmiot przetwarzający w rozumieniu art. 28 RODO. Transfer danych odbywa się na podstawie standardowych klauzul umownych zatwierdzonych przez Komisję Europejską zgodnie z art. 46 ust. 2 lit. c) RODO oraz zgodnie z ramami EU–U.S. Data Privacy Framework, którym Web3Forms podlega za pośrednictwem swojego dostawcy. Polityka prywatności Web3Forms: <a href="https://web3forms.com/privacy" style="color: var(--brass-light);">web3forms.com/privacy</a>.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Vercel Inc.</strong> (USA) — hosting strony kymera-art.com. Vercel przetwarza dane techniczne odwiedzających (adresy IP, znaczniki czasu, user-agent) na potrzeby dostarczania treści i bezpieczeństwa usługi. Vercel jest certyfikowany w ramach EU–U.S. Data Privacy Framework (decyzja Komisji UE 2023/1795). Transfer danych do USA jest zatem objęty tą decyzją o odpowiednim poziomie ochrony. Polityka prywatności Vercel: <a href="https://vercel.com/legal/privacy-policy" style="color: var(--brass-light);">vercel.com/legal/privacy-policy</a>.</p>
+      </div>
+      <p>Osoba, której dane dotyczą, ma prawo zażądać kopii standardowych klauzul umownych, przesyłając wiadomość e-mail na adres <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a>.</p>
+      <p>Odbiorcami danych osobowych są ponadto: <strong>bank</strong> (do realizacji płatności) oraz <strong>organy publiczne</strong> (urząd skarbowy, czeski odpowiednik ZUS — ČSSZ — do wypełnienia obowiązków ustawowych). Podmioty te przetwarzają dane wyłącznie w niezbędnym zakresie i na podstawie upoważnienia ustawowego. Księgowość prowadzi administrator samodzielnie, bez udziału zewnętrznego księgowego.</p>
+    </section>
+
+    <section>
+      <h2>6. Państwa prawa</h2>
+      <p>Jako osobie, której dane dotyczą, przysługują Państwu następujące prawa w zakresie danych osobowych:</p>
+      <ul>
+        <li><strong>Prawo dostępu</strong> — w każdej chwili mogą Państwo zażądać potwierdzenia, czy przetwarzamy Państwa dane, oraz ich kopii.</li>
+        <li><strong>Prawo do sprostowania</strong> — jeśli Państwa dane są nieprawidłowe lub niekompletne, dokonamy ich korekty.</li>
+        <li><strong>Prawo do usunięcia</strong> — w przypadkach przewidzianych przez prawo mają Państwo prawo zażądać usunięcia swoich danych.</li>
+        <li><strong>Prawo do ograniczenia przetwarzania</strong> — w określonych okolicznościach mogą Państwo zażądać, abyśmy przetwarzali Państwa dane wyłącznie w ograniczonym zakresie.</li>
+        <li><strong>Prawo do przenoszenia danych</strong> — jeśli przetwarzamy Państwa dane w sposób zautomatyzowany na podstawie zgody lub umowy, mają Państwo prawo do ich otrzymania w formacie nadającym się do odczytu maszynowego.</li>
+        <li><strong>Prawo do sprzeciwu</strong> — jeśli przetwarzanie opiera się na uzasadnionym interesie, mogą Państwo w dowolnym momencie wnieść sprzeciw; przetwarzanie zostanie zakończone, chyba że wykażemy istnienie ważnych podstaw.</li>
+        <li><strong>Prawo do cofnięcia zgody</strong> — zgoda na przetwarzanie może być cofnięta w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania przed jej cofnięciem.</li>
+      </ul>
+      <p>Swoje prawa mogą Państwo realizować, kontaktując się pod adresem <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a> lub pisemnie na adres administratora. Odpowiemy w ciągu 30 dni.</p>
+      <p>Mają Państwo również prawo do wniesienia skargi do organu nadzorczego — <strong>Czeskiego Urzędu Ochrony Danych Osobowych (ÚOOÚ)</strong> (<a href="https://www.uoou.cz" style="color: var(--brass-light);">uoou.cz</a>), Pplk. Sochora 27, 170 00 Praga 7.</p>
+    </section>
+
+    <section>
+      <h2>7. Bezpieczeństwo</h2>
+      <p>Cała komunikacja ze stroną odbywa się w sposób szyfrowany za pośrednictwem protokołu HTTPS. Dane osobowe przechowujemy wyłącznie w korespondencji e-mail, do której dostęp ma wyłącznie administrator. Stosujemy odpowiednie środki techniczne i organizacyjne proporcjonalne do charakteru przetwarzania i ryzyka dla Państwa praw.</p>
+    </section>
+
+    <section>
+      <h2>8. Kontakt</h2>
+      <p>W przypadku jakichkolwiek pytań dotyczących przetwarzania Państwa danych osobowych prosimy o bezpośredni kontakt z administratorem:</p>
+      <p>
+        Jakub Nowicki<br>
+        <a href="mailto:atelier@kymera-art.com" style="color: var(--brass-light);">atelier@kymera-art.com</a><br>
+        <a href="tel:+420734548884" style="color: var(--brass-light);">+420 734 548 884</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Kymera</div>
+      <div class="footer-contact">
+        Jakub Nowicki &nbsp;·&nbsp; Frýdecká 851, 739 61 Trzyniec<br>
+        <a href="mailto:atelier@kymera-art.com">atelier@kymera-art.com</a> &nbsp;·&nbsp;
+        <a href="tel:+420734548884">+420 734 548 884</a>
+      </div>
+      <div class="footer-legal-links">
+        <a href="rodo.html">Ochrona danych osobowych</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="regulamin.html">Regulamin</a>
+      </div>
+      <div class="footer-copy">
+        <span>© 2026 Jakub Nowicki. Wszelkie prawa zastrzeżone.</span>
+        <span>kymera-art.com</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
