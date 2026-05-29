@@ -641,7 +641,8 @@ p{ margin:0 0 1em; color:var(--ink-soft); line-height:1.7; max-width:62ch; }
 /* ---------- RESPONSIVE ---------- */
 /* TABLET: 700-1100 — 2 sloupce kolekce/vybraná/galerie, hamburger nav */
 @media (max-width: 1100px){
-  .primary-nav, .header-tools .btn, .lang-switch{ display:none; }
+  .primary-nav, .header-tools .btn, .header-tools .lang-switch{ display:none; }
+  .mobile-nav .lang-switch{ display:flex; }
   .nav-toggle{ display:block; }
   .hero{ min-height:82vh; }
   .hero-figure{ opacity:0.45; }
